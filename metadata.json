@@ -1,0 +1,8 @@
+{
+  "name": "Capybara Happy Farm - Gesture Control",
+  "description": "Một trò chơi giáo dục và vui nhộn dành cho trẻ em 6 tuổi, nơi các bé điều khiển chú Capybara trồng cam bằng cử chỉ tay thông qua camera. Sử dụng AI để tương tác và hướng dẫn bé.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
