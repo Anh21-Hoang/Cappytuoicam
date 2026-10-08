@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sổ tay Structure & Written Expression · TOEFL ITP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b2a3d; --ink-deep:#131f2e;
+    --paper:#f3ead9; --paper-dim:#e8dcc4;
+    --stamp:#b2402f; --stamp-dark:#8f2f22;
+    --gold:#c9a227; --sage:#4c7a52; --sage-deep:#365a3b;
+    --line: rgba(27,42,61,0.18);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: radial-gradient(ellipse at top left, rgba(255,255,255,0.03), transparent 60%), var(--ink);
+    color:var(--paper); font-family:'IBM Plex Mono', monospace;
+    min-height:100vh; padding:28px 16px 60px; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:940px;margin:0 auto;}
+
+  header{border:1px solid var(--line); border-bottom:none; padding:22px 26px 18px; position:relative;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);}
+  .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;}
+  h1{font-family:'Fraunces', serif; font-weight:700; font-size:clamp(26px,4.6vw,40px); line-height:1.08; margin:0 0 8px; color:var(--paper);}
+  h1 em{font-style:italic;font-weight:500;color:var(--gold);}
+  .sub{font-size:13px;color:rgba(243,234,217,0.65);max-width:620px;line-height:1.65;}
+  .catalog-no{position:absolute; top:22px; right:26px; font-size:11px; letter-spacing:.08em; color:rgba(243,234,217,0.4); text-align:right;}
+
+  nav.tabs{display:flex; border:1px solid var(--line); border-top:none;}
+  .tab{flex:1; text-align:center; padding:14px 10px; cursor:pointer; font-size:13px; letter-spacing:.05em; text-transform:uppercase;
+    color:rgba(243,234,217,0.55); border-right:1px solid var(--line); transition:.2s; user-select:none;}
+  .tab:last-child{border-right:none;}
+  .tab.active{background:var(--paper); color:var(--ink); font-weight:600;}
+  .tab:not(.active):hover{background:rgba(255,255,255,0.04); color:var(--paper);}
+
+  main{border:1px solid var(--line); border-top:none; background:rgba(255,255,255,0.015); padding:24px 22px 30px;}
+  .panel{display:none;} .panel.active{display:block;}
+
+  .method-card{background:var(--paper); color:var(--ink); border-radius:2px; padding:18px 20px; margin-bottom:20px; font-size:12.5px; line-height:1.75;}
+  .method-card h3{font-family:'Fraunces',serif; font-size:16px; margin:0 0 10px; color:var(--stamp-dark);}
+  .method-card ol,.method-card ul{margin:0; padding-left:20px;}
+  .method-card li{margin-bottom:7px;}
+  .method-card b{color:var(--stamp-dark);}
+  .method-card .toggle{
+    font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--stamp); cursor:pointer;
+    margin-top:10px; display:inline-block; border-bottom:1px dashed var(--stamp);
+  }
+
+  details.theory-card{background:var(--paper); color:var(--ink); border-radius:2px; margin-bottom:12px; font-size:12.5px; line-height:1.75;}
+  details.theory-card summary{
+    padding:14px 20px; cursor:pointer; list-style:none; font-family:'Fraunces',serif; font-size:14.5px;
+    font-weight:600; color:var(--stamp-dark); display:flex; align-items:center; gap:8px;
+  }
+  details.theory-card summary::-webkit-details-marker{display:none;}
+  details.theory-card summary::before{content:'+'; font-family:'IBM Plex Mono',monospace; color:var(--gold); background:var(--ink-deep);
+    width:18px; height:18px; border-radius:2px; display:inline-flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0;}
+  details.theory-card[open] summary::before{content:'–';}
+  details.theory-card .body{padding:0 20px 18px;}
+  details.theory-card b{color:var(--stamp-dark);}
+  details.theory-card .formula{
+    background:var(--paper-dim); border-left:3px solid var(--stamp); padding:8px 12px; margin:8px 0; font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+  }
+  details.theory-card ul,details.theory-card ol{margin:6px 0; padding-left:20px;}
+  details.theory-card li{margin-bottom:6px;}
+
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;}
+  .chip{border:1px solid var(--line); color:rgba(243,234,217,0.6); padding:7px 12px; font-size:11px; letter-spacing:.04em;
+    cursor:pointer; border-radius:2px; transition:.15s; user-select:none; background:transparent;}
+  .chip:hover{border-color:var(--gold); color:var(--gold);}
+  .chip.active{background:var(--gold); border-color:var(--gold); color:var(--ink-deep); font-weight:600;}
+  .chip .n{opacity:.65; margin-left:4px;}
+
+  .statline{display:flex; justify-content:space-between; align-items:center; font-size:12px; letter-spacing:.06em;
+    text-transform:uppercase; color:rgba(243,234,217,0.6); margin-bottom:16px; flex-wrap:wrap; gap:10px;}
+  .statline .score{color:var(--gold); font-weight:600;}
+  .progress-track{height:3px; background:rgba(255,255,255,0.1); flex:1; margin:0 16px; position:relative; min-width:120px;}
+  .progress-fill{position:absolute; left:0; top:0; height:100%; background:var(--gold); width:0%; transition:width .35s;}
+
+  .q-card{background:var(--paper); color:var(--ink); border-radius:2px; padding:24px 22px; position:relative;}
+  .q-card .no{position:absolute; top:14px; left:16px; font-size:10px; color:rgba(27,42,61,0.4); letter-spacing:.08em;}
+  .q-cat-label{font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--stamp); text-align:center; margin-bottom:14px; font-weight:600;}
+  .q-text{font-family:'Fraunces',serif; font-size:16.5px; line-height:1.9; margin-bottom:20px;}
+  .q-text .blank{border-bottom:2px solid var(--stamp); padding:0 6px;}
+  .q-text .u{cursor:pointer; padding:1px 2px; border-radius:2px; text-decoration:underline; text-decoration-color:rgba(27,42,61,0.4); transition:.12s;}
+  .q-text .u:hover{background:var(--paper-dim);}
+  .q-text .u sub{font-size:9px; color:var(--stamp); vertical-align:sub; margin-left:1px;}
+  .q-text .u.picked{background:var(--gold);}
+  .q-text .u.correct-mark{background:var(--sage); color:#fff; text-decoration-color:#fff;}
+  .q-text .u.wrong-mark{background:var(--stamp); color:#fff; text-decoration-color:#fff;}
+  .q-text .u.locked{cursor:default;}
+
+  .options{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:6px;}
+  .opt{background:#fff; border:1px solid rgba(27,42,61,0.15); padding:11px 12px; cursor:pointer; font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px; border-radius:2px; transition:.15s; display:flex; gap:8px;}
+  .opt .lbl{color:var(--stamp); font-weight:600;}
+  .opt:hover{border-color:var(--ink); background:var(--paper-dim);}
+  .opt.correct{background:var(--sage); color:#fff; border-color:var(--sage-deep);}
+  .opt.correct .lbl{color:#fff;}
+  .opt.incorrect{background:var(--stamp); color:#fff; border-color:var(--stamp-dark);}
+  .opt.incorrect .lbl{color:#fff;}
+  .opt.disabled{pointer-events:none;}
+
+  .q-actions{display:flex; gap:10px; justify-content:center; margin-top:14px;}
+  .btn{background:var(--gold); color:var(--ink-deep); border:none; padding:10px 18px; font-family:'IBM Plex Mono',monospace;
+    font-weight:600; font-size:12px; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; border-radius:2px;}
+  .btn:hover{background:#e0bb3d;}
+  .btn.ghost{background:transparent; border:1px solid var(--stamp); color:var(--stamp-dark);}
+
+  .explain{display:none; margin-top:16px; padding:14px 16px; background:var(--paper-dim); border-left:4px solid var(--stamp);
+    font-size:12.5px; line-height:1.7; text-align:left;}
+  .explain.show{display:block;}
+  .explain b{color:var(--stamp-dark);}
+  .explain .step-tag{display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:.06em; background:var(--stamp);
+    color:#fff; padding:2px 7px; border-radius:2px; margin-bottom:8px;}
+
+  @media (max-width:560px){
+    .options{grid-template-columns:1fr;}
+    header, main, nav.tabs{padding-left:16px; padding-right:16px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="catalog-no">Bộ thẻ số 05<br>TOEFL ITP</div>
+    <div class="eyebrow">Structure & Written Expression</div>
+    <h1>Sổ tay <em>Chọn đúng — Sửa đúng</em></h1>
+    <p class="sub">Không học thuộc 40 câu — học <b>quy trình suy luận</b> để áp dụng cho bất kỳ đề Structure/Written Expression nào. Toàn bộ 40 câu mẫu bạn cung cấp được dùng làm bài luyện tập bên dưới.</p>
+  </header>
+
+  <nav class="tabs">
+    <div class="tab active" data-tab="structure">01 · Structure (điền chỗ trống)</div>
+    <div class="tab" data-tab="written">02 · Written Expression (tìm lỗi sai)</div>
+  </nav>
+
+  <main>
+    <!-- STRUCTURE PANEL -->
+    <div class="panel active" id="panel-structure">
+      <div class="method-card">
+        <h3>Quy trình 7 bước cho Structure</h3>
+        <ol>
+          <li>Đọc lướt cả câu, xác định chỗ trống nằm ở đâu: <b>đầu câu</b> / <b>giữa hai dấu phẩy</b> / <b>cuối câu (trong danh sách liệt kê)</b>.</li>
+          <li>Kiểm tra câu chính đã có đủ <b>chủ ngữ + động từ chia thì</b> chưa. Nếu đã đủ, chỗ trống chỉ cần cụm bổ nghĩa/rút gọn — <b>loại ngay</b> đáp án nào chứa chủ ngữ + động từ chia thì riêng (nó sẽ tạo câu chạy/run-on).</li>
+          <li>Nếu chỗ trống nằm ngay sau danh từ, giữa hai dấu phẩy → ưu tiên cụm <b>rút gọn</b> (V-ed/V-ing hoặc cụm đồng vị danh từ), loại các đáp án có "it is / they are / which is" gây thừa mệnh đề.</li>
+          <li>Nếu chỗ trống nằm trong danh sách liệt kê (có dấu phẩy + "and") → kiểm tra <b>song song cấu trúc</b> với các phần tử đã cho sẵn.</li>
+          <li>Thấy so sánh → so với 1 nhóm/tất cả thì dùng <b>so sánh nhất + "the"</b>; so với 1 đối tượng khác thì dùng so sánh hơn.</li>
+          <li>Giới từ chỉ số lượng đối tượng: đúng <b>2</b> đối tượng → <b>between</b>; nhiều hơn 2 hoặc không xác định số lượng → <b>among</b>.</li>
+          <li>Xét chủ động/bị động: nếu danh từ đứng trước <b>không tự thực hiện</b> hành động (đất không tự "lắng đọng", người không tự "định nghĩa" chính mình) → chọn dạng <b>bị động</b> (to be + V-ed, hoặc V-ed rút gọn).</li>
+          <li><b>Mẹo kiểm tra chéo (đếm liên từ)</b>: với một câu hoàn chỉnh, luôn có <b>Số từ nối = Số động từ chia thì − 1</b>. Nếu đáp án bạn chọn làm phá vỡ đẳng thức này (thừa/thiếu một động từ hoặc từ nối), loại ngay đáp án đó.</li>
+        </ol>
+      </div>
+
+      <details class="theory-card">
+        <summary>Mẹo đếm liên từ (kiểm tra chéo mọi câu)</summary>
+        <div class="body">
+          Với câu tiếng Anh đúng ngữ pháp: <b>Số từ nối (liên từ, đại từ quan hệ...) = Số động từ chia thì − 1</b>.
+          <div class="formula">Số TN&nbsp;=&nbsp;Số V&nbsp;−&nbsp;1</div>
+          Ví dụ câu 6 trong bộ luyện tập: "Robert Penn Warren, <b>who</b> eventually <b>became</b>..., <b>was</b> originally a member..." — có 1 từ nối ("who") và 2 động từ chia thì ("became", "was") → 1 = 2 − 1 ✓ hợp lệ.
+          Dùng công thức này để loại nhanh đáp án nào làm câu bị thừa hoặc thiếu một động từ/từ nối.
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Chuyên đề "V-ing" — 3 vai trò trong câu</summary>
+        <div class="body">
+          <ol>
+            <li><b>Động từ (V)</b> — chỉ khi có trợ động từ "be" (am/is/are/was/were) đứng ngay trước:
+              <div class="formula">S + be + V-ing + O</div>
+              VD: "She <b>is doing</b> her homework" (đúng) — thiếu "is" → sai ngữ pháp.
+            </li>
+            <li><b>Tính từ (Adj)</b> — khi đứng sau mạo từ/giới từ/tính từ sở hữu và trước danh từ:
+              <div class="formula">(mạo từ / prep / TTSH) + V-ing + N</div>
+              VD: "a machining part", "my machining workpiece".
+            </li>
+            <li><b>Danh từ (N)</b> — khi đứng một mình làm chủ ngữ/tân ngữ (danh động từ):
+              <div class="formula">V-ing + O/Osau + V + O&nbsp;&nbsp;(V-ing đóng vai trò S)</div>
+              VD: "<b>Making</b> completely harmless products <b>is</b> very expensive" — "Making..." là chủ ngữ nên động từ chia "is".
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Chuyên đề "V-ed / V-p2" — vai trò Động từ và Tính từ</summary>
+        <div class="body">
+          <ol>
+            <li><b>Động từ ở thì quá khứ đơn</b>: <span class="formula" style="display:inline-block;">S + V-ed + N</span> — VD: "I <b>played</b> a game".</li>
+            <li><b>Động từ ở thể bị động</b>: <span class="formula" style="display:inline-block;">S + be + V-ed/V-p2 (+ by + O)</span> — VD: "An exercise <b>is finished/done</b> by me".</li>
+            <li><b>Động từ ở thì hoàn thành</b>: <span class="formula" style="display:inline-block;">S + have/has/had + V-ed/V-p2 + O</span> — VD: "I <b>have finished</b> the Toefl test".</li>
+            <li><b>Tính từ (Adj)</b> — khi đứng sau mạo từ/giới từ/TTSH (+adv) và trước danh từ: <span class="formula" style="display:inline-block;">mạo từ/prep/TTSH (+adv) + V-ed/V-p2 + N</span> — VD: "a <b>machined</b> part", "a well <b>known</b> book".</li>
+          </ol>
+          <b>Ngoại lệ cần nhớ:</b> khi V-ed/V-p2 đứng ngay sau giới từ hoặc "as", đó KHÔNG phải động từ chính — thường là dạng rút gọn của mệnh đề quan hệ tính ngữ (xem mục "thiếu động từ chính" ở tab Written Expression).
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Động từ 2 tân ngữ & cấu trúc với "make"</summary>
+        <div class="body">
+          Một số động từ đặc biệt lấy TRỰC TIẾP 2 danh từ làm 2 tân ngữ liền kề, không cần liên từ:
+          <div class="formula">make / consider / designate / give / win / appoint / select / gain &nbsp;+&nbsp; O1 + O2</div>
+          <b>Mẹo làm bài (câu 1-15)</b>: nếu đề cho sẵn O1 và chỗ trống là O2 → chọn <b>danh từ ngắn nhất</b> trong các đáp án.
+          Riêng "make" có 2 công thức cố định:
+          <div class="formula">CT1: make + adj + O &nbsp;|&nbsp; make it + adj + (prep)</div>
+          <div class="formula">CT2: make + O + adj &nbsp;|&nbsp; make + O1 + O2</div>
+          Cách dùng: sau "make" <b>chưa có</b> tân ngữ rõ ràng → dùng CT1 (điền adj); sau "make" <b>đã có</b> một danh từ → dùng CT2 (điền O2 hoặc adj).
+          Đề có thể cho "make" ở biến thể makes/made/making — chỉ cần xác định vị trí của nó rồi áp công thức, không cần phân tích lại toàn bộ S–V để tiết kiệm thời gian.
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Đảo ngữ mở rộng (ngoài "There is/are")</summary>
+        <div class="body">
+          <ul>
+            <li><b>Dấu hiệu 1</b>: "Among/In + O" đứng đầu câu, và câu đang thiếu S+V theo thứ tự thường → chọn đáp án đảo ngữ.</li>
+            <li><b>Dấu hiệu 2</b>: từ mang nghĩa phủ định đứng đầu câu — not only, not until, rarely, never, only, hardly, scarcely... → cũng dùng đảo ngữ.</li>
+          </ul>
+          Khi gặp 1 trong 2 dấu hiệu trên, đáp án đảo ngữ sẽ có 1 trong 3 dạng:
+          <div class="formula">(a) Be + S + O/V-ing/V-ed/V-p2</div>
+          <div class="formula">(b) Do/Does/Did/động từ khuyết thiếu + S + V</div>
+          <div class="formula">(c) Have/Has/Had + S + V-ed/V-p2</div>
+          <b>Đảo ngữ đặc biệt</b>: "In/At/Beneath + O" đứng đầu câu → công thức đơn giản hơn, không cần "be":
+          <div class="formula">In/At/Beneath + O, ___(prep O) → V + S</div>
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Cấu trúc nhấn mạnh: so...that / such...that / too...to</summary>
+        <div class="body">
+          <div class="formula">CT1: S + V (+much) + so + adj/adv + that + S V O &nbsp;→&nbsp; nhấn mạnh tính từ/trạng từ</div>
+          Dạng đảo ngữ tương đương: <span class="formula" style="display:inline-block;">So + adj/adv + đảo ngữ + that S V O</span>
+          <div class="formula">CT2: S + V + such + N + that + S V O &nbsp;→&nbsp; nhấn mạnh danh từ</div>
+          <div class="formula">CT3: S V (O) so that S V O &nbsp;→&nbsp; "so that" diễn tả MỤC ĐÍCH (khác CT1 diễn tả kết quả)</div>
+          <div class="formula">CT4: N + such as + N &nbsp;|&nbsp; V/prep + such + N + as + N &nbsp;→&nbsp; "such as" = liệt kê ví dụ</div>
+          <div class="formula">CT5: S + V (+far) + too + adj/adv + to V + O</div>
+          <b>Mẹo câu 1-15</b>: nếu thấy đáp án có cụm "far too" → khả năng cao đó là đáp án đúng.
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Lượng từ & cụm từ chỉ số lượng</summary>
+        <div class="body">
+          <div class="formula">CT1: each/another/every/much/(a) little + N số ít &nbsp;|&nbsp; other/many/(a) few/số(≥2) + Ns</div>
+          Mở rộng CT1: every + số(≥2) + Ns (VD: every four years).
+          <div class="formula">CT2: each other (đại từ tương hỗ) — không nhầm với "each another"</div>
+          <div class="formula">CT3: From one + N to/into another</div>
+          <div class="formula">CT4: One/two of the + (adv)(adj) + Ns</div>
+          <div class="formula">CT5: Each of the + Ns + V + O &nbsp;→&nbsp; V chia theo "Each" (số ít), KHÔNG theo Ns theo sau</div>
+          <div class="formula">CT6: Any other + N số ít</div>
+          <div class="formula">CT7: Numerous/several/diverse + Ns &nbsp;|&nbsp; Various + Ns ⇔ a variety of + Ns</div>
+          <div class="formula">CT8: a collection of / composed of / the majority of + Ns</div>
+          <div class="formula">CT9: A/The + number of + Ns &nbsp;→&nbsp; "A number of" = nhiều (chia theo Ns); "The number of" = con số (chia số ít)</div>
+          <div class="formula">CT10: Of/almost + all + Ns (hoặc + N không đếm được)</div>
+          <div class="formula">CT11: Số(cụ thể) + hundred/thousand/million/billion + Ns (KHÔNG thêm "s") &nbsp;|&nbsp; Hundreds/thousands/... + of + Ns (CÓ "s", nghĩa "hàng trăm/nghìn...")</div>
+          Lỗi cần nhớ: "Số + feet/inches + height/thickness" → sai → sửa thành tính từ ("high/thick") hoặc thêm giới từ ("in height/thickness").
+          <br><br>
+          <b>Cách dùng lượng từ đo lường gần đúng:</b> Approximately + số &nbsp;|&nbsp; số + percent &nbsp;|&nbsp; Over/about/at least + số (over &gt; ; about ≈) &nbsp;|&nbsp; Near (giới từ, + N, nghĩa "gần") vs Nearly (lượng từ, nghĩa "xấp xỉ", + số/a cycle/all).
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>So sánh: bằng / hơn / hơn nhất / kép</summary>
+        <div class="body">
+          <b>13A — So sánh bằng và so sánh hơn:</b>
+          <div class="formula">Bằng: S+be/Vthường + as adj/adv as + S+(be) be+S / S+(do/does/did/Vthường)</div>
+          <div class="formula">Hơn: S+be/Vthường + adj-er/adv-er hoặc more/less+adj/adv+than + S+(be) be+S / S+(do/does/did/Vthường)</div>
+          Chú ý độ dài: tính từ/trạng từ NGẮN (1 âm tiết, hoặc 2 âm tiết tận cùng "y") → dạng "-er"; DÀI (≥2 âm tiết) → "more/less + adj/adv + than".
+          <br>VD bằng: "He is as tall as his father/his father is/is his father." "John sings as well as mine/I do/do I."
+          <br><br>
+          Chú ý so sánh bằng: khi động từ ở dạng phủ định, "as" thứ nhất có thể thay bằng "so": <span class="formula" style="display:inline-block;">S+V phủ định+so/as+adj/adv+as+O</span>. Cấu trúc "the same...as": <span class="formula" style="display:inline-block;">S V+the same(+N)+as+O/SVO</span>
+          <br><br>
+          So sánh hơn nhấn mạnh danh từ: <span class="formula" style="display:inline-block;">S+V+more/less+than+O</span> (danh từ này thường bắt đầu bằng con số, coi "more/less than+N" là 1 cụm danh từ). VD: "I can work more than 12 hours a day."
+          <br><br>
+          <b>Mẹo câu 1-15</b>: đáp án nào hoàn thành được cụm "as/than + that/those of N" → ưu tiên điền.
+          <br><br>
+          <b>13B — So sánh hơn nhất:</b>
+          <div class="formula">S+V+the+adj/adv ngắn+"est"(+N)+in/of+O</div>
+          <div class="formula">S+V+the most/least+adj/adv dài(+N)+in/of+O</div>
+          VD: "John is the tallest (student) in our class." "It is the most expensive car in my garage."
+          <br><br>
+          So sánh nhất với sở hữu cách: <span class="formula" style="display:inline-block;">S+V+(the)+N's+___+N</span> — nếu 4 đáp án chứa "most" hoặc "W-est" (từ tận cùng "-est"), coi N's ⇔ "the" nên KHÔNG cần thêm "the" nữa.
+          <br><br>
+          <b>13C — So sánh kép:</b>
+          <div class="formula">The + SS hơn (không "than") + S+V, the + SS hơn (không "than") + S+V</div>
+          VD: "The more you study, the smarter you will become." Đặc điểm nhận biết: 2 vế bắt đầu bằng "the", tách nhau bởi dấu phẩy, sau "the" dùng dạng so sánh hơn KHÔNG "than" của adj/adv.
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Mệnh đề trạng ngữ rút gọn</summary>
+        <div class="body">
+          <b>Quy tắc rút gọn</b>: nếu sau liên từ trạng ngữ (TN_adv: while, when, although, though, even though, whereas...) có dạng "S+be+V-ing/V-ed/V-p2/adj" thì có thể rút gọn "S" và "be". TN_adv và phần còn lại GIỮ NGUYÊN (khác với rút gọn mệnh đề tính từ).
+          <div class="formula">a) S+V+O + TN_adv (S+be) [(adv)V-ed/V-p2+prep+O | V-ing+O | (adv)adj+prep+O]</div>
+          <div class="formula">b) TN_adv (S+be) [(adv)V-ed/V-p2+prep+O | V-ing+O | (adv)adj+prep+O], S+V+O</div>
+          VD: "Peter is respected by many people while <s>he is</s> holding no official position for election." (rút gọn "he is").
+          <br><br>
+          Chú ý: khi sau TN mệnh đề trạng ngữ KHÔNG thấy dạng "S+V", đây chính là dạng rút gọn — vẫn phải coi tương đương "TN+S+V+O" khi áp dụng quy tắc đếm liên từ.
+          <br><br>
+          <b>Mẹo nhận diện (độ chính xác cao)</b>: khi thấy dạng "___ (adv) V-ed/V-p2/adj + prep/as + O, S+V+O" → điền liên từ tương phản: <b>even though, although, though, while, whereas</b>.
+          <br><br>
+          <b>Mẹo câu 1-15</b>: đáp án nào hoàn thành được 1 trong 3 cụm sau → ưu tiên chọn:
+          <div class="formula">when V-ed prep O &nbsp;|&nbsp; when V-ing O &nbsp;|&nbsp; S V (O) when V-ed</div>
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Mệnh đề danh từ</summary>
+        <div class="body">
+          <b>Khi chỗ trống đứng TRƯỚC động từ chính</b> (___ V O — cần điền chủ ngữ):
+          <div class="formula">Hướng 1: Điền danh từ (N) làm S → S V O</div>
+          <div class="formula">Hướng 2: Điền mệnh đề danh từ làm S → TN S V (O) V O</div>
+          TN chỉ gồm: <b>what, how, why, that, whether or not</b> (coi cả mệnh đề này là chủ ngữ SỐ ÍT).
+          <br>VD: "<b>What</b> we learn from the universities was very useful."
+          <br><br>
+          <b>Khi chỗ trống đứng SAU động từ chính</b> (S V ___ — cần điền tân ngữ):
+          <div class="formula">Hướng 1: Điền danh từ (N) làm O → S V O</div>
+          <div class="formula">Hướng 2: Điền mệnh đề danh từ làm O → S V TN S V (O)</div>
+          TN ngoại trừ: <b>who, which</b> (hầu hết các từ để dẫn mệnh đề danh từ làm tân ngữ đều dùng được, trừ 2 từ này).
+          <br>VD: "I don't know <b>what</b> they do with this computer."
+          <br><br>
+          <b>Công thức riêng với TN "what":</b>
+          <div class="formula">S+V+O+prep what+V(+O)</div>
+          <div class="formula">What (S) V O V O</div>
+          <div class="formula">S V what S V O</div>
+          <b>Mẹo câu 1-15</b>: đáp án hoàn thành được cụm "prep what V O" → chọn. Đáp án dạng "What is + now/called" → chọn (mẫu cố định hay gặp).
+          <br>Chú ý: "how/when" có thể dẫn cả 2 dạng "S V O" lẫn "to V O".
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Mệnh đề trạng ngữ (đầy đủ) & mẹo nhận diện tương phản</summary>
+        <div class="body">
+          <b>Khái niệm</b>: mệnh đề trạng ngữ là thành phần có cấu trúc mệnh đề, bổ sung ý nghĩa cho trạng từ trong câu.
+          <div class="formula">S V O + TN_adv + S V O &nbsp;|&nbsp; TN_adv + S V O, S V O</div>
+          Từ nối mệnh đề trạng ngữ (TN_adv): when(ever), where(ever), just as, how, why, whether, once.
+          <br>TN trạng ngữ tương phản: <b>even though, although, though, while, whereas</b>.
+          <br><br>
+          <b>Mẹo cực mạnh (~98% chính xác) cho câu 1-15</b>: khi phân tích thấy câu ở dạng:
+          <div class="formula">1. S V (O) ___ S V O</div>
+          <div class="formula">2. ___ S V (O), S V O</div>
+          (tức là 2 mệnh đề đầy đủ, chỉ thiếu từ nối) → điền TN trạng ngữ TƯƠNG PHẢN: even though, although, though, while, whereas.
+          <br><b>Lưu ý</b>: đây là mẹo xác suất cao chứ không tuyệt đối — vẫn nên đọc nghĩa câu để tránh trường hợp ngoại lệ hiếm gặp.
+        </div>
+      </details>
+
+      <div class="chip-row" id="s-chip-row"></div>
+
+      <div class="statline">
+        <span>Câu <span class="score" id="s-index">1</span>/<span id="s-total">15</span></span>
+        <div class="progress-track"><div class="progress-fill" id="s-progress"></div></div>
+        <span>Đúng: <span class="score" id="s-score">0</span></span>
+      </div>
+
+      <div class="q-card">
+        <div class="no" id="s-no">No. 01</div>
+        <div class="q-cat-label" id="s-cat-label"></div>
+        <div class="q-text" id="s-text"></div>
+        <div class="options" id="s-options"></div>
+        <div class="q-actions">
+          <button class="btn ghost" id="s-next-btn" style="display:none;">Câu tiếp theo →</button>
+        </div>
+        <div class="explain" id="s-explain"></div>
+      </div>
+    </div>
+
+    <!-- WRITTEN EXPRESSION PANEL -->
+    <div class="panel" id="panel-written">
+      <div class="method-card">
+        <h3>Quy trình kiểm tra 4 nhóm lỗi ưu tiên</h3>
+        <ol>
+          <li>Đọc trọn câu trước — đừng soi từng phần gạch chân ngay từ đầu.</li>
+          <li>Kiểm tra lần lượt 4 nhóm lỗi hay gặp nhất:
+            <ul>
+              <li><b>Hòa hợp S–V</b>: chủ ngữ số ít/nhiều có khớp động từ không?</li>
+              <li><b>Song song</b>: các phần tử trong danh sách/liên từ tương quan có cùng dạng từ không?</li>
+              <li><b>Dạng từ</b>: từ gạch chân có đúng từ loại (tính từ/trạng từ/danh từ/động từ) theo đúng vị trí ngữ pháp không?</li>
+              <li><b>Đại từ</b>: it/they/those/that/its/their/which/who/whose có khớp danh từ nó thay thế (số ít/nhiều, người/vật, sở hữu) không?</li>
+            </ul>
+          </li>
+          <li>Cảnh giác <b>câu chạy / thừa chủ ngữ</b>: nếu câu đã có chủ ngữ chính, một đại từ "it/they" xuất hiện lần 2 ngay sau đó thường là lỗi.</li>
+          <li>Cảnh giác <b>thiếu động từ chính</b>: nếu cả câu chỉ toàn V-ing/V-ed mà không có trợ động từ chia thì đứng trước, câu đang thiếu vị ngữ.</li>
+          <li>Kiểm tra <b>liên từ tương quan</b> cố định phải đúng cặp: both...and, either...or, neither...nor, not only...but also.</li>
+          <li>Nếu A, B, C đều ổn — khả năng cao lỗi rơi vào <b>D</b>, thường liên quan đến các quy tắc trên.</li>
+        </ol>
+      </div>
+
+      <details class="theory-card">
+        <summary>Tìm lỗi thì động từ dựa vào trạng từ chỉ thời gian</summary>
+        <div class="body">
+          <ul>
+            <li>Thấy <b>ago</b>, <b>in + năm</b> (VD: in 1988), <b>last + thời gian</b>, <b>in the [số thứ tự] century</b> → câu ở <b>quá khứ đơn (QKĐ)</b>: <span class="formula" style="display:inline-block;">S + was/were/V-ed/V-p1 + O</span></li>
+            <li>Thấy <b>by + mốc thời gian quá khứ</b> (VD: by 1933), hoặc <b>2 mốc thời gian trong quá khứ</b> (VD: "in 1944 ... until 1956") → câu ở <b>quá khứ hoàn thành (QKHT)</b>: <span class="formula" style="display:inline-block;">S + had + V-ed/V-p2 + O</span></li>
+            <li>Lưu ý: "by + mốc thời gian quá khứ" có thể chia được ở <b>cả hai</b> thì QKHT và QKĐ tùy ngữ cảnh — cần đọc kỹ câu.</li>
+          </ul>
+          Cách làm bài: (1) đọc hết câu, chú ý trạng từ chỉ thời gian để xác định thì đúng; (2) kiểm tra động từ trong câu — động từ nào chia không đúng thì đó chính là đáp án sai, khoanh lại.
+          <br><br>
+          Riêng <b>thì hiện tại hoàn thành</b> (câu chủ động: <span class="formula" style="display:inline-block;">S+have/has+V-ed/V-p2+O</span>; câu bị động: <span class="formula" style="display:inline-block;">S+have/has+been+V-ed/V-p2+prep+O</span>) — đề thường KHÔNG hỏi lỗi ở chính thì này, công thức chỉ giúp nhận diện khi gặp.
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Giới từ vs Liên từ: because/because of, despite/in spite of/during/due to</summary>
+        <div class="body">
+          <ul>
+            <li><b>Because</b> là LIÊN TỪ (nối 2 mệnh đề): <span class="formula" style="display:inline-block;">Because + S V O, S V O</span> — hoặc <span class="formula" style="display:inline-block;">S V O + because + S V O</span></li>
+            <li><b>Because of</b> là GIỚI TỪ: <span class="formula" style="display:inline-block;">Because of + O, S V O</span></li>
+            <li><b>Despite / In spite of / During / Due to</b> đều là GIỚI TỪ, theo sau PHẢI là danh từ/cụm danh từ: <span class="formula" style="display:inline-block;">Despite/In spite of/During/Due to + O, S V O</span></li>
+          </ul>
+          <b>Cách kiểm tra lỗi</b>: nếu thấy "because of" / "despite" / "in spite of" / "during" / "due to" mà theo sau là một <b>mệnh đề đầy đủ</b> (có S V O riêng) → khoanh lại, đó là lỗi — sửa thành liên từ tương ứng ("because" cho "because of"; "although" cho "despite/in spite of"; "while" cho "during"). Ngược lại, nếu thấy "because" mà theo sau chỉ là một danh từ/cụm danh từ (không có S V) → cũng là lỗi — sửa thành "because of".
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Từ & cấu trúc nhấn mạnh (very/only/such/far/much/too)</summary>
+        <div class="body">
+          <b>7a) Từ nhấn mạnh</b> (very, only, such, far, much, too): phải đứng <b>TRƯỚC</b> từ/cấu trúc mà nó bổ nghĩa.
+          <div class="formula">Dạng sai hay gặp (câu 16-40): W1 W2, với W2 là từ nhấn mạnh đứng SAU → sai → đảo lại vị trí</div>
+          VD: "hot <b>very</b>" sai → sửa "<b>very</b> hot".
+          <br><br>
+          <b>7b) Mẹo phát hiện lỗi với so/such...that</b>:
+          <ul>
+            <li>"so much + adj/adv + that" → sai (thừa "much") → bỏ "much", chỉ giữ "so".</li>
+            <li>"too/very ... that" → sai (too/very không đi với mệnh đề "that" kiểu này) → sửa thành "so".</li>
+            <li>"such + adj/adv + that" → sai (such không đứng trực tiếp trước tính từ/trạng từ) → sửa thành "so".</li>
+            <li>"so + N + that" → sai (so không đứng trực tiếp trước danh từ) → sửa thành "such".</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Mạo từ a/an/the</summary>
+        <div class="body">
+          <b>8a) a/an</b>: dùng trước danh từ số ít đếm được — "an" trước âm NGUYÊN ÂM, "a" trước âm PHỤ ÂM.
+          <div class="formula">Ngoại lệ: "unique" phát âm đầu là /ju/ (âm phụ âm) → "a unique", không phải "an unique"</div>
+          <b>8b) the</b>: sau "the" phải là danh từ. Với danh từ số nhiều, có "the" hay không đều đúng.
+          <ul>
+            <li><b>Bắt buộc dùng "the"</b>: trước số thứ tự (ngoại lệ: within/every second — "second" nghĩa là giây); trước right side/same/world/end/rest of; most/some of the+N/Ns; trong so sánh hơn nhất; trước "state" khi câu nói về nước Mỹ (VD có từ Hawaii).</li>
+            <li>Câu 16-40, chú ý: "the + số(≥2) + N số ít" → sai → sửa thành <b>số thứ tự</b>.</li>
+            <li><b>KHÔNG dùng "the"</b>: một số danh từ trừu tượng/khái quát như "the astronomy", "the certain conditions", "of the nature", "the nitrogen/night" → sai → bỏ "the"; N's + W-est/most/số thứ tự + N (sở hữu cách 's đã tương đương "the"); "at first" (trạng từ, nghĩa "ban đầu") hoặc "first" đứng trước động từ (đóng vai trò trạng từ) → không thêm "the"; nếu đáp án có "most" đứng đầu câu → có "the" hay không đều đúng, không khoanh là lỗi.</li>
+          </ul>
+          <b>8c) Câu viết thiếu mạo từ</b>:
+          <div class="formula">S + be/begin/form/have/cover/allow + N số ít KHÔNG mạo từ → sai</div>
+          VD: "I am student" sai → "I am <b>a</b> student". Nếu các đáp án khác không sai ngữ pháp/từ loại, đáp án dạng "prep + (adj) + N số ít không mạo từ" thường KHÔNG phải lỗi (một số cụm giới từ cố định không cần mạo từ).
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Lỗi thường gặp với each/every/all (câu 16-40)</summary>
+        <div class="body">
+          <ul>
+            <li>"each another" → sai → sửa "<b>each other</b>" (đại từ tương hỗ).</li>
+            <li>"every of the" → sai → sửa "<b>each of the</b>" ("every" không đi được với "of the").</li>
+            <li>"of/almost + every + Ns" → sai → sửa "<b>all</b>" ("every" chỉ đi với danh từ số ít).</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Song song nâng cao (to-V / V-ing / N or N / N and N)</summary>
+        <div class="body">
+          <div class="formula">a) Mạo từ + adj + ,/and + adj + N &nbsp;→&nbsp; các tính từ liệt kê trước 1 danh từ phải song song</div>
+          <div class="formula">b) S+V+O and+V+O &nbsp;→&nbsp; 2 động từ chia CÙNG THÌ và cùng chia theo S</div>
+          <div class="formula">c) S+V+O, V+O, (V+O,) and+V+O &nbsp;→&nbsp; 3 động từ chia cùng thì và cùng theo S</div>
+          <div class="formula">d) S+V(O) to+V+O, V+O, and/or+V+O &nbsp;→&nbsp; giới từ "to" dùng chung, cả 3 động từ để nguyên thể</div>
+          <div class="formula">e) S+V(O) prep+V-ing+O, V-ing+O, and/or+V-ing+O &nbsp;→&nbsp; "prep" dùng chung (hoặc lặp lại prep ở mỗi vế)</div>
+          <b>Kiến thức bổ trợ:</b>
+          <ul>
+            <li>N <b>or</b> N + V + O → động từ chia theo danh từ đứng SAU "or".</li>
+            <li>N <b>and</b> N + V + O → coi là chủ ngữ số nhiều, chia động từ số nhiều.</li>
+            <li>N, N, ..., and N <b>both</b> V O (khi liệt kê từ 3 danh từ trở lên) → "both" sai (both chỉ dùng cho 2 đối tượng) → sửa thành "<b>all</b>".</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Vị trí đứng của tính từ</summary>
+        <div class="body">
+          <b>Vị trí 1</b> — đứng trước danh từ để bổ nghĩa:
+          <div class="formula">Mạo từ/prep/TTSH + (adv) + adj + N</div>
+          Câu 16-40, chú ý: phần bổ nghĩa ngay trước tính từ chính có thể là adj hoặc adv, <b>cả hai đều được</b> → không phải lỗi, không khoanh. VD: "a new car" (adj+N); "a new red car" (adj+adj+N); "a newly made car" (adv+adj+N).
+          <br><br>
+          Một số tính từ hay gặp: speedy, sugary, complex, particular, moderate, common, average, popular, inanimate, major, main, proper, intricate, large, alternate, strong, heavy, great, regular. Ghi nhớ: <b>good</b> là TÍNH TỪ, <b>well</b> là TRẠNG TỪ.
+          <br><br>
+          <b>Cách dùng "alike/alive"</b> (đều là tính từ, chỉ đứng SAU be/Vdb — Vdb: make/become/consider/look/remain/seem — không đứng trước danh từ):
+          <div class="formula">S + be/Vdb + alike/alive</div>
+          VD: They look alike; They are alive. Mẹo câu 16-40: "Alike + N" → sai → sửa "<b>like</b>" (giới từ). "MV + alive" → sai → sửa "<b>live</b>" (nguyên thể sau động từ khuyết thiếu).
+          <br><br>
+          <b>Chú ý đại từ "they/she"</b> chỉ dùng làm chủ ngữ (S). Câu 16-40, nếu thấy: (1) V/V-ing/prep + she/they → sai → sửa "her/them"; (2) V/V-ing/prep + she/they + N → sai → sửa "her/their".
+          <br><br>
+          <b>Vị trí 2</b> — đứng sau "be" và "Vdb":
+          <div class="formula">S + be/Vdb (adv)(adv) + adj + prep/as/./,/TN</div>
+          VD: This car is expensive; This car is extremely expensive.
+          <br><br>
+          <b>Vị trí 3</b> — tính từ KHÔNG đứng ngay trước mạo từ (a/an/the)+N:
+          <div class="formula">Adj + a/an/the + N → sai → sửa thành TRẠNG TỪ</div>
+          VD sai: "Jack is <b>probable</b> the expert in this field." → sửa: "Jack is <b>probably</b> the expert in this field."
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Vị trí đứng của trạng từ</summary>
+        <div class="body">
+          <b>Nhận biết</b>: trạng từ thường kết thúc bằng đuôi "-ly". Trạng từ hay gặp: perhaps, then, also, thus, otherwise, even, still, sometimes, somewhat, well, somewhere.
+          <div class="formula">Ngoại lệ (đuôi "-ly" nhưng là TÍNH TỪ): early, likely, daily, heavenly, costly</div>
+          "fast, hard" vừa là adj vừa là adv (cùng 1 dạng).
+          <br><br>
+          <b>Vị trí 1</b> — đứng trước tính từ để bổ nghĩa: <span class="formula" style="display:inline-block;">(...adv) adv adj</span>
+          <br><br>
+          <b>Vị trí 2</b> — bổ nghĩa cho "V" dạng chủ động và bị động (Động từ có 4 dạng: be, Vdb, Vthường, V khuyết thiếu — Vthường là các V ngoài 3 loại còn lại):
+          <div class="formula">1. S + (adv) Vthường (adv) + prep/as/.</div>
+          <div class="formula">2. (TN/S+be) (adv) + V-ed/V-p2 (adv) + prep/as/.,/TN</div>
+          <div class="formula">3. S + MV (adv) + V + O</div>
+          <b>Vị trí 3</b> — trạng từ KHÔNG đứng được ở 2 vị trí:
+          <div class="formula">S + adv + be + a/an/the + N → sai → sửa: S + be + adv + a/an/the + N</div>
+          <div class="formula">S + Vthường + adv + N → sai → sửa: S + adv + Vthường + O</div>
+          <b>Vị trí 4</b> — dùng trong bị động của động từ khuyết thiếu và thì hoàn thành (giúp nhận diện, tránh bẫy):
+          <div class="formula">S + MV + (adv) be + (adv) + V-ed/V-p2 + prep</div>
+          <div class="formula">S + have/has/had (adv) + been (adv) + V-ed/V-p2 + prep</div>
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Vị trí đứng của danh từ</summary>
+        <div class="body">
+          Câu 16-40, mẹo 1: nếu đáp án gạch chân chứa "<b>theirs, others, hers</b>" mà có danh từ đứng SAU → sai → bỏ "s" (đây là đại từ sở hữu tuyệt đối, phải đứng một mình). VD: "hers home" sai → sửa "her home".
+          <br><br>
+          Mẹo 2: nếu sau từ "not" có các từ: longer, voice, speech, means, matter, woman, adult → sai → sửa "not" thành "<b>no</b>".
+          <br><br>
+          <b>Cách dùng "no/none"</b>:
+          <div class="formula">No + N (VD: No smoking) &nbsp;|&nbsp; None of + N ("none" là danh từ — VD: None of the people)</div>
+          Mẹo câu 16-40: nếu thấy "None + N" (không có "of") → sai → sửa "none" thành "no", hoặc thêm "of" (none of).
+          <br><br>
+          <b>Vị trí đứng cơ bản</b>: sau mạo từ (a/an/the), giới từ, tính từ sở hữu (TTSH: its, his, her, my, your, their, our) PHẢI dùng danh từ.
+          <div class="formula">a student &nbsp;|&nbsp; by collection &nbsp;|&nbsp; my name</div>
+          VD minh họa: "A various of devices" — đuôi "-ous" là đuôi tính từ, sau mạo từ "a" cần danh từ → "various" sai vị trí, sửa "variety". Nhưng "the various ways" — sau "various" đã có danh từ "ways" nên "various" ở đây là TÍNH TỪ bổ nghĩa cho "ways" → ĐÚNG (không phải lỗi).
+          <br><br>
+          <b>Danh từ ghép</b>: trong phạm vi đề thi, chỉ có 2 dạng đúng: N N, hoặc N Ns. Chỉ khoanh đáp án chứa danh từ ghép khi các đáp án khác đã đúng ngữ pháp (dạng 50/50, cần loại trừ trước).
+          <div class="formula">KHÔNG có các dạng: Ns N &nbsp;|&nbsp; Ns Ns &nbsp;|&nbsp; N+mạo từ+N &nbsp;|&nbsp; N N N</div>
+          Chú ý: một số danh từ số ít có tận cùng là "s": sales, process, class, species.
+          <br><br>
+          <b>Tính từ sở hữu & đại từ thay thế</b>: "their/those" chỉ thay cho Ns (số nhiều); "its/her/that" chỉ thay cho N số ít.
+          <div class="formula">S ít V...its/her+N &nbsp;|&nbsp; Ss V...their+N</div>
+          <div class="formula">S ít V...that of O &nbsp;|&nbsp; Ss V...those of/in O</div>
+          VD: "Mai wants to meet <b>her</b> friends" (S ít); "The students want to meet <b>their</b> teacher" (Ss); "The cost of this car is higher than <b>that</b> of my car" (S ít "the cost").
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Vị trí đứng của động từ</summary>
+        <div class="body">
+          Động từ đứng sau giới từ (prep) cần để dạng V-ing: <span class="formula" style="display:inline-block;">prep + V-ing + O</span>
+          Động từ đứng sau "to" cần để dạng nguyên thể: <span class="formula" style="display:inline-block;">to + V</span>
+          <div class="formula">Ngoại lệ (to + V-ing): in addition to / adjust to / dedicate to</div>
+          Các lỗi cần nhớ:
+          <ul>
+            <li>"S+be+V+prep/as" → sai → sửa V-ed/V-p2</li>
+            <li>"S+be+V-ing+prep/as" → sai → sửa V-ed/V-p2</li>
+            <li>"S+have/has/had+V/V-ing" → sai → sửa V-ed/V-p2</li>
+          </ul>
+          Chú ý động từ bất quy tắc đặc biệt: (be)come(V)→(be)came(V-p1)→(be)come(V-p2); run(V)→ran(V-p1)→run(V-p2) — dạng V-p2 giống hệt V nguyên thể.
+          <br><br>
+          <b>Dạng bị động chi tiết theo từng thì:</b>
+          <div class="formula">a. HTĐ & QKĐ: S+am/is/are/was/were+V-ed/V-p2+prep+O — VD: Your task was done in this afternoon by Tom.</div>
+          <div class="formula">b. HTHT & QKHT: S+have/has/had+been+V-ed/V-p2+prep+O — VD: These tables have been arranged for meetings.</div>
+          <div class="formula">c. HTTD & QKTD: S+am/is/are/was/were+being+V-ed/V-p2+prep+O — VD: My car is being repaired in the garage.</div>
+          <div class="formula">d. MV (khuyết thiếu): S+MV+be+V-ed/V-p2+prep+O — VD: Toefl ITP should be learned by heart (chủ động: S+MV+V nguyên thể+O). MV gồm: can-could, may-might, will-would, shall-should, must.</div>
+          <b>Động từ luôn đi kèm giới từ cố định:</b> adhere/relate/refer/reach+to; depend/impact/spend/base/rely/comment+on; consist(+adv)+of; compose+of/in; find+in/on (find→found→found, V-p1 và V-p2 giống nhau). Câu 16-40, nếu thấy cụm như "up of/up to/by on" → KHÔNG sai, đừng khoanh nhầm.
+          <br><br>
+          <b>Mở rộng (tiếp theo)</b>: adapt+to/for (mẹo: "adapt <b>at</b>" → sai, khoanh); deal/concern/fill (+adv)+with; serve+as/for/to/in (mẹo: "serve <b>into</b>" → sai, khoanh); involve+in (mẹo: "involve <b>of</b>" → sai, khoanh); help(O)+V+O hoặc help(O)+to V+O (cả 2 đều đúng); gain/credit/substitute(O)+for; rank+among+Ns; compare/suit/associate+to/with; differ/benefit+from.
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Lỗi thường gặp trong cấu trúc so sánh</summary>
+        <div class="body">
+          <ul>
+            <li>"it/them of N" → sai → sửa "<b>that/those</b>" (so sánh với danh từ phải dùng that/those thay thế, không dùng it/them).</li>
+            <li>"more/less + W-er" → sai → bỏ "more/less" (thừa, vì W-er — từ tận cùng "-er" — đã là dạng so sánh hơn rồi, tránh so sánh kép/double comparative). VD: "more heavier" → "heavier".</li>
+            <li>"most + W-est/worst" → sai → bỏ "most" (thừa, double superlative). Chú ý: Bad → worse (so sánh hơn) → worst (so sánh nhất) — dạng bất quy tắc.</li>
+            <li>So sánh nhất với sở hữu cách: nếu thấy "N's + most/W-est" → KHÔNG cần "the" trước "most"/"W-est" (vì N's đã tương đương "the").</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="theory-card">
+        <summary>Lỗi mệnh đề danh từ: which vs what</summary>
+        <div class="body">
+          <ul>
+            <li>"prep + which + V+O" (giới từ theo sau trực tiếp bởi "which" rồi động từ) → sai → sửa "<b>what</b>" (không có tiền ngữ rõ ràng, "what" = "cái mà").</li>
+            <li>"prep + what + S+V(+O)" khi CÓ tiền ngữ rõ ràng đứng trước → sai → sửa "<b>which</b>" (đại từ quan hệ cần tiền ngữ, "what" không có tiền ngữ).</li>
+          </ul>
+        </div>
+      </details>
+
+      <div class="chip-row" id="w-chip-row"></div>
+
+      <div class="statline">
+        <span>Câu <span class="score" id="w-index">1</span>/<span id="w-total">25</span></span>
+        <div class="progress-track"><div class="progress-fill" id="w-progress"></div></div>
+        <span>Đúng: <span class="score" id="w-score">0</span></span>
+      </div>
+
+      <div class="q-card">
+        <div class="no" id="w-no">No. 16</div>
+        <div class="q-cat-label" id="w-cat-label"></div>
+        <div class="q-text" id="w-text"></div>
+        <div class="q-actions">
+          <button class="btn" id="w-check-btn">Kiểm tra</button>
+          <button class="btn ghost" id="w-next-btn" style="display:none;">Câu tiếp theo →</button>
+        </div>
+        <div class="explain" id="w-explain"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+/* ============ STRUCTURE DATA ============ */
+const structureCategories = {
+  so_sanh:{label:"So sánh hơn/nhất"},
+  gioi_tu_lien_tu:{label:"Giới từ / liên từ"},
+  rut_gon_menh_de:{label:"Mệnh đề quan hệ rút gọn"},
+  luong_tu:{label:"Lượng từ + danh từ"},
+  song_song:{label:"Song song trong liệt kê"},
+  menh_de_day_du:{label:"Mệnh đề quan hệ chêm (đầy đủ)"},
+  dai_tu_so_huu:{label:"Đại từ sở hữu / phản thân"},
+  chu_dong_bi_dong:{label:"Chủ động / bị động đầu câu"},
+  cum_dong_vi:{label:"Cụm đồng vị (appositive)"},
+  dong_tu_chinh:{label:"Câu thiếu động từ chính"},
+  ving_vaitro:{label:"V-ing: vai trò V/Adj/N"},
+  ved_vaitro:{label:"V-ed/V-p2: vai trò V/Adj"},
+  hai_tan_ngu:{label:"Động từ 2 tân ngữ & make"},
+  dao_ngu_among_in:{label:"Đảo ngữ: Among/In + O"},
+  dao_ngu_phu_dinh:{label:"Đảo ngữ: từ phủ định đầu câu"},
+  dao_ngu_dac_biet:{label:"Đảo ngữ đặc biệt: In/At/Beneath"},
+  nhan_manh_ct:{label:"Nhấn mạnh: far too"},
+  luong_tu_ct:{label:"Lượng từ & cụm số lượng"},
+  md_trang_ngu_rutgon:{label:"Mệnh đề trạng ngữ rút gọn"},
+  md_danh_tu:{label:"Mệnh đề danh từ"},
+  md_trang_ngu_day_du:{label:"Mệnh đề trạng ngữ đầy đủ (mẹo tương phản)"},
+};
+
+const structureItems = [
+  {no:1, cat:'so_sanh', text:`— possible temperature is called absolute zero.`,
+   opts:["Low","The low","The lower","The lowest"], ans:3,
+   explain:`<span class="step-tag">Bước 5 — So sánh</span>"Absolute zero" là nhiệt độ thấp nhất có thể có trong toàn vũ trụ (so với TẤT CẢ nhiệt độ khác) → cần so sánh nhất, đi kèm "the" → <b>The lowest</b>.`},
+  {no:2, cat:'gioi_tu_lien_tu', cat2:'gioi_tu_lien_tu', text:`— the Neolithic Period, humans learned to make pottery, which enabled them to more easily and efficiently store food and water.`,
+   opts:["At","When","During","Between"], ans:2,
+   explain:`<span class="step-tag">Bước 6 — Giới từ chỉ thời gian</span>"the Neolithic Period" là một <b>khoảng thời gian</b> (không phải một thời điểm), nên cần giới từ "During" + danh từ chỉ khoảng thời gian. "At" dùng cho thời điểm cụ thể (at 5 o'clock); "When" là liên từ cần một mệnh đề (S+V) theo sau, không thể đứng trước cụm danh từ; "Between" cần 2 mốc. → <b>During</b>.`},
+  {no:3, cat:'rut_gon_menh_de', text:`Parkinson's disease, — in people over the age of fifty, is a degenerative disease of the brain affecting muscular control.`,
+   opts:["mainly that is seen","seen mainly","it is seen mainly","which seen mainly"], ans:1,
+   explain:`<span class="step-tag">Bước 3 — Rút gọn mệnh đề chêm</span>Câu chính đã đủ S–V ("Parkinson's disease ... is a degenerative disease"), nên chỗ trống chỉ là cụm bổ nghĩa rút gọn cho "Parkinson's disease". Dạng đầy đủ: "which is seen mainly in people..." → rút gọn còn <b>seen mainly</b> (bỏ "which is"). Các đáp án khác tạo câu thừa mệnh đề hoặc sai trật tự từ.`},
+  {no:4, cat:'luong_tu', text:`— small businesses operating in North America are sole proprietorships, meaning they are owned by one person.`,
+   opts:["Most of the","Most of","The most","Almost"], ans:0,
+   explain:`<span class="step-tag">Bước 1-2 — Chủ ngữ ở đầu câu</span>Cấu trúc "most of + danh từ cụ thể" cần có "the": <b>Most of the</b> small businesses. "Most of" (không "the") chỉ dùng trước đại từ sở hữu (most of my...); "The most" là so sánh nhất sai nghĩa ở đây; "Almost" cần đi với "all" (almost all).`},
+  {no:5, cat:'song_song', text:`Tarragon, a bushy herb with narrow leaves, contains an aromatic oil which makes it an excellent spice for flavoring salads, pickles, and —.`,
+   opts:["flavoring tartar sauce","used for tartar sauce","tartar sauce","the tartar sauce"], ans:2,
+   explain:`<span class="step-tag">Bước 4 — Song song</span>Danh sách "flavoring <b>salads</b>, <b>pickles</b>, and ___" — "flavoring" đã dùng chung cho cả 3 phần tử, nên chỗ trống chỉ cần một danh từ trần (không mạo từ, không lặp lại "flavoring") để song song với "salads" và "pickles" → <b>tartar sauce</b>.`},
+  {no:6, cat:'menh_de_day_du', text:`Robert Penn Warren, —, was originally a member of the Fugitive Group of young Southern writers.`,
+   opts:["who eventually became America's first poet laureate","he eventually became America's first poet laureate","America's first poet laureate he eventually became","became eventually America's first poet laureate"], ans:0,
+   explain:`<span class="step-tag">Bước 2-3 — Tránh câu chạy</span>Câu chính đã có chủ ngữ "Robert Penn Warren" + động từ "was". Chỗ trống chêm giữa 2 dấu phẩy cần một <b>mệnh đề quan hệ</b> bắt đầu bằng đại từ quan hệ "who", không phải một mệnh đề độc lập khác (dùng "he"/"became" sẽ tạo câu chạy — hai mệnh đề nối nhau chỉ bằng dấu phẩy) → <b>who eventually became...</b>.`},
+  {no:7, cat:'dai_tu_so_huu', text:`The auditory canal, a tube leading to the outer ear opening, is found only in animals having eardrums inside — skulls.`,
+   opts:["itself","themselves","its","their"], ans:3,
+   explain:`<span class="step-tag">Đại từ sở hữu</span>Cần đại từ sở hữu (không phải phản thân) đứng trước danh từ "skulls", chia theo danh từ nó thay thế là "animals" (số nhiều) → <b>their</b>.`},
+  {no:8, cat:'chu_dong_bi_dong', text:`— as overweight, an adult male or female should have a body weight 10 to 20 percent greater than other adults of the same size and sex.`,
+   opts:["Defined","Defining","To define","To be defined"], ans:3,
+   explain:`<span class="step-tag">Bước 7 — Bị động</span>Chủ ngữ "an adult male or female" không tự "định nghĩa" chính mình — họ là đối tượng ĐƯỢC định nghĩa. Cấu trúc "To be + V-ed" (nguyên mẫu bị động) diễn tả điều kiện/mục đích: "Để được định nghĩa là quá cân, một người trưởng thành cần có..." → <b>To be defined</b>.`},
+  {no:9, cat:'chu_dong_bi_dong', text:`Volcanic soils, —, are often some of the richest and most fertile.`,
+   opts:["by eruptions deposited","they are deposited by eruptions","deposited by eruptions","the eruptions deposit them"], ans:2,
+   explain:`<span class="step-tag">Bước 3 & 7 — Rút gọn + bị động</span>Đất không tự "lắng đọng" chính nó — nó ĐƯỢC lắng đọng bởi các đợt phun trào. Dạng đầy đủ "which are deposited by eruptions" rút gọn thành cụm phân từ bị động <b>deposited by eruptions</b>, chêm giữa hai dấu phẩy mà không tạo câu chạy.`},
+  {no:10, cat:'gioi_tu_lien_tu', text:`Research suggests that bears that attack humans are rarely hunting for food — rather defending their cubs or their territory.`,
+   opts:["but","yet","however","consequently"], ans:0,
+   explain:`<span class="step-tag">Liên từ cố định</span>Cấu trúc "rarely X but rather Y" (không phải X mà là Y) là cặp liên từ quen thuộc — "but" ghép với "rather" ngay sau. "However" là trạng từ, không thể nối trực tiếp hai cụm động từ theo cách này; "consequently" sai nghĩa (không diễn tả kết quả) → <b>but</b>.`},
+  {no:11, cat:'so_sanh', text:`Founded in 1565 by the Spanish explorer and admiral Pedro Menéndez de Avilés, St. Augustine, Florida is — continually inhabited city in the United States.`,
+   opts:["the old","the oldest","older","old"], ans:1,
+   explain:`<span class="step-tag">Bước 5 — So sánh</span>So sánh với TẤT CẢ thành phố khác "in the United States" → cần so sánh nhất, đi kèm "the" → <b>the oldest</b>.`},
+  {no:12, cat:'cum_dong_vi', text:`The telegraph, —, was used to establish the first direct link between the West and East coasts of the United States in 1861.`,
+   opts:["the first electric communication device produced by humans","humans produced this first electric communication device","it is the first electric communication device produced by humans","which is the first produced electric device by humans"], ans:0,
+   explain:`<span class="step-tag">Bước 2-3 — Cụm đồng vị</span>Câu chính đã đủ S–V ("The telegraph ... was used"). Chỗ trống chêm giữa 2 dấu phẩy chỉ cần một <b>cụm danh từ đồng vị</b> (không chứa động từ chia thì) mô tả thêm "The telegraph" → loại các đáp án tạo thành mệnh đề riêng (gây câu chạy) hoặc sai trật tự từ ("first produced electric device") → <b>the first electric communication device produced by humans</b>.`},
+  {no:13, cat:'gioi_tu_lien_tu', text:`— the many important functions of the liver are the producing of proteins and the cleaning of the blood.`,
+   opts:["That","Between","For","Among"], ans:3,
+   explain:`<span class="step-tag">Bước 6 — Between vs Among</span>Cụm "the many important functions" cho biết có NHIỀU HƠN 2 chức năng — hai chức năng được liệt kê chỉ là ví dụ trong số đó, không phải toàn bộ. "Between" chỉ dùng khi đúng 2 đối tượng và không còn đối tượng nào khác → <b>Among</b>.`},
+  {no:14, cat:'dong_tu_chinh', text:`Residents of the District of Columbia — and members of a city council, as well as one non-voting delegate to the Congress of the United States.`,
+   opts:["election of a mayor","they elect the mayor","elect a mayor","the mayor is elected"], ans:2,
+   explain:`<span class="step-tag">Bước 2 — Thiếu động từ chính</span>Chủ ngữ "Residents" chưa có động từ chính chia thì. Cần một động từ chủ động để làm động từ chính cho cả 3 tân ngữ song song ("a mayor", "members of a city council", "one non-voting delegate") → <b>elect a mayor</b>.`},
+  {no:15, cat:'rut_gon_menh_de', text:`It is the arrangement of the electrons, —, which determines the formation of a compound.`,
+   opts:["they are different for each element","different for each element","each element is different","that is different for each element"], ans:1,
+   explain:`<span class="step-tag">Bước 3 — Rút gọn mệnh đề chêm</span>Dạng đầy đủ "which are different for each element" rút gọn thành <b>different for each element</b> (bỏ "which are"), chêm bổ nghĩa cho "the arrangement of the electrons" mà không tạo mệnh đề thừa.`},
+  {no:16, cat:'ving_vaitro', text:`— hazardous waste properly requires strict regulations and specialized facilities.`,
+   opts:["Dispose of","Disposing of","Disposed of","To disposed of"], ans:1,
+   explain:`<span class="step-tag">V-ing vai trò N</span>Công thức "V-ing + O + V + O" với V-ing đóng vai trò chủ ngữ (danh động từ): "<b>Disposing of</b> hazardous waste properly requires..." "Dispose of" thiếu chủ ngữ hoàn chỉnh cho vị trí này; "Disposed of" (V-p2) không thể làm chủ ngữ; "To disposed of" sai ngữ pháp (to + nguyên mẫu, không phải "disposed").`},
+  {no:17, cat:'ving_vaitro', text:`The technician replaced the — part before restarting the machine.`,
+   opts:["malfunction","malfunctioning","is malfunctioning","malfunctioned"], ans:1,
+   explain:`<span class="step-tag">V-ing vai trò Adj</span>V-ing đóng vai trò tính từ khi đứng sau mạo từ và trước danh từ: "the <b>malfunctioning</b> part". "malfunction" là danh từ/động từ nguyên mẫu, sai vị trí; "is malfunctioning" thừa trợ động từ; "malfunctioned" (V-ed) mang nghĩa bị động không hợp lý ở đây (bộ phận tự trục trặc, không bị ai làm cho trục trặc).`},
+  {no:18, cat:'ved_vaitro', text:`The bridge, — over a century ago, is still in excellent condition today.`,
+   opts:["built","building","builds","was built"], ans:0,
+   explain:`<span class="step-tag">V-p2 rút gọn bị động</span>Rút gọn từ "which was built" → bỏ "which was", giữ lại V-p2 <b>built</b> (bị động, vì cây cầu không tự xây chính nó). "was built" sẽ tạo 2 động từ chia thì nối nhau chỉ bằng dấu phẩy → câu chạy.`},
+  {no:19, cat:'ved_vaitro', text:`A report — by an independent auditor tends to be more credible than one written by an insider.`,
+   opts:["prepare","prepared","preparing","preparation"], ans:1,
+   explain:`<span class="step-tag">V-p2 vai trò V (bị động)</span>"<b>prepared</b> by an independent auditor" là cụm bị động rút gọn từ "which is prepared by...", bổ nghĩa cho "A report" (report không tự chuẩn bị chính nó).`},
+  {no:20, cat:'hai_tan_ngu', text:`The board of directors appointed Ms. Tran — of the new regional office last month.`,
+   opts:["the director","director","directing","to direct"], ans:1,
+   explain:`<span class="step-tag">Động từ 2 tân ngữ</span>"appoint" thuộc nhóm động từ lấy 2 tân ngữ liền kề: S+V+O1+O2. O1 đã cho là "Ms. Tran", chỗ trống là O2 → chọn danh từ <b>ngắn nhất</b>, không mạo từ (chức danh) → <b>director</b>.`},
+  {no:21, cat:'hai_tan_ngu', text:`Regular maintenance makes — much easier to keep the machine running smoothly.`,
+   opts:["it","itself","one","this"], ans:0,
+   explain:`<span class="step-tag">Công thức CT1 của "make"</span>"make <b>it</b> + adj + (phần còn lại)": sau "make" chưa có tân ngữ rõ ràng nên dùng tân ngữ giả "it", chủ ngữ thật là cụm "to keep the machine running smoothly" đứng cuối câu.`},
+  {no:22, cat:'hai_tan_ngu', text:`The new policy will make the approval process — for everyone involved.`,
+   opts:["simplify","simpler","simplifying","to simplify"], ans:1,
+   explain:`<span class="step-tag">Công thức CT2 của "make"</span>"make + O + adj": sau "make" đã có danh từ "the approval process" (O) → chỗ trống cần tính từ bổ nghĩa cho O → <b>simpler</b>.`},
+  {no:23, cat:'dao_ngu_among_in', text:`Among the most famous products of the Aesthetic Movement were the Tiffany lamps first — in 1899.`,
+   opts:["had been producing","had been produced","produced","were producing"], ans:2,
+   explain:`<span class="step-tag">Đảo ngữ dấu hiệu 1</span>"Among + O" đầu câu, câu đã đảo thành V+S ("were the Tiffany lamps"). Phần "first ___ in 1899" là mệnh đề quan hệ rút gọn cho "the Tiffany lamps" (rút gọn từ "which were first produced"), dùng V-p2 bị động đơn giản (đèn không tự sản xuất) → <b>produced</b>. Không cần thì hoàn thành vì đây chỉ là cụm rút gọn, không phải động từ chính.`},
+  {no:24, cat:'dao_ngu_phu_dinh', text:`Rarely — such a comprehensive study of coral reef ecosystems before this research team's expedition.`,
+   opts:["researchers have conducted","have researchers conducted","researchers conducted","conducted researchers"], ans:1,
+   explain:`<span class="step-tag">Đảo ngữ dấu hiệu 2</span>Từ phủ định "Rarely" đầu câu → đảo ngữ theo công thức (c) Have/Has/Had + S + V-p2: "Rarely <b>have researchers conducted</b>...".`},
+  {no:25, cat:'dao_ngu_phu_dinh', text:`Never — such a dramatic increase in sea levels within a single decade.`,
+   opts:["scientists observed","did scientists observe","scientists did observe","observed scientists"], ans:1,
+   explain:`<span class="step-tag">Đảo ngữ dấu hiệu 2</span>Từ phủ định "Never" đầu câu → đảo ngữ theo công thức (b) Do/Does/Did + S + V nguyên mẫu: "Never <b>did scientists observe</b>...".`},
+  {no:26, cat:'dao_ngu_dac_biet', text:`Beneath the ancient ruins — a network of tunnels used for trade and defense.`,
+   opts:["lies","lie","lying","is lying"], ans:0,
+   explain:`<span class="step-tag">Đảo ngữ đặc biệt</span>"Beneath + O" đầu câu → công thức V+S (không cần "be"). Chủ ngữ thật đứng sau là "a network of tunnels" — danh từ trung tâm số ít "network" → <b>lies</b>.`},
+  {no:27, cat:'dao_ngu_dac_biet', text:`In the center of the village — an old stone well that supplied water for generations.`,
+   opts:["stand","stood","standing","to stand"], ans:1,
+   explain:`<span class="step-tag">Đảo ngữ đặc biệt</span>"In + O" đầu câu → công thức V+S. Chủ ngữ "an old stone well" số ít, mệnh đề sau dùng quá khứ ("supplied") → động từ đảo ngữ cũng chia quá khứ, số ít → <b>stood</b>.`},
+  {no:28, cat:'nhan_manh_ct', text:`The bridge was — narrow to accommodate two-way traffic, so the city built a new one nearby.`,
+   opts:["too","far too","so","such"], ans:1,
+   explain:`<span class="step-tag">Mẹo "far too" (câu 1-15)</span>Công thức 5: S+V(+far)+too+adj/adv+to V+O. "far too narrow to accommodate" khớp đúng cấu trúc "too...to" được nhấn mạnh thêm bằng "far". <b>Mẹo nhanh</b>: ở phần điền từ, nếu thấy đáp án chứa cụm "far too" thì khả năng cao đó là đáp án đúng.`},
+  {no:29, cat:'luong_tu_ct', text:`— of the machines in the factory undergoes a safety inspection every month.`,
+   opts:["Every","Each","Much","Another"], ans:1,
+   explain:`<span class="step-tag">Công thức 5</span>Cấu trúc "Each of the + Ns + V" — động từ chia theo "Each" (số ít): "<b>Each</b> of the machines... <b>undergoes</b>...". Không dùng "Every" vì "every" KHÔNG đi được với "of the + danh từ số nhiều" (chỉ "each of" mới đúng).`},
+  {no:30, cat:'luong_tu_ct', text:`The construction project is expected to cost approximately five — dollars.`,
+   opts:["hundred","hundreds","hundreds of","hundred of"], ans:0,
+   explain:`<span class="step-tag">Công thức 11</span>"Số (cụ thể) + hundred/thousand/million/billion + Ns": khi có số đếm cụ thể đứng trước, "hundred" KHÔNG thêm "s" → "five <b>hundred</b> dollars". Dạng "hundreds of" chỉ dùng khi KHÔNG có số cụ thể (nghĩa "hàng trăm").`},
+  {no:31, cat:'luong_tu_ct', text:`The ice on the lake was reported to be nearly two feet —, safe enough for skating.`,
+   opts:["thickness","thick","thickness of","thickened"], ans:1,
+   explain:`<span class="step-tag">Công thức 11 — lỗi số+feet+N</span>"Số + feet + height/thickness" là sai; cách sửa phổ biến nhất là dùng tính từ: "two feet <b>thick</b>" (thay vì danh từ "thickness"). Cách sửa khác là thêm giới từ: "two feet <b>in</b> thickness".`},
+  {no:32, cat:'luong_tu_ct', text:`The construction of the new bridge is — complete, with only the final inspections remaining.`,
+   opts:["near","nearly","nearest","nearing"], ans:1,
+   explain:`<span class="step-tag">Near vs Nearly</span>"near" là giới từ, cần danh từ theo sau (near + N — VD: near my house); "nearly" là lượng từ nghĩa "xấp xỉ", đứng trước tính từ/số từ: "<b>nearly</b> complete".`},
+  {no:33, cat:'luong_tu_ct', text:`The bridge spans — 1,200 meters across the river, connecting the two districts.`,
+   opts:["approximate","approximately","approximation","approximating"], ans:1,
+   explain:`<span class="step-tag">Cách dùng lượng từ</span>"Approximately + số" — cần trạng từ "<b>approximately</b>" đứng trước con số, không phải danh từ/tính từ/động từ.`},
+  {no:34, cat:'luong_tu_ct', text:`The museum's collection — of artifacts from over twenty different ancient civilizations.`,
+   opts:["composed","is composed","composing","compose"], ans:1,
+   explain:`<span class="step-tag">Công thức 8</span>"composed of + Ns" luôn xuất hiện ở thể bị động với "be": "The collection <b>is composed of</b>..." — không dùng "composed/composing/compose" một mình vì thiếu trợ động từ "be".`},
+  {no:35, cat:'luong_tu_ct', text:`The workshop covers — approaches to conflict resolution, from negotiation to mediation techniques.`,
+   opts:["a variety","various","variety of","a variety of"], ans:1,
+   explain:`<span class="step-tag">Công thức 7</span>"Various + Ns" tương đương nghĩa với "a variety of + Ns", nhưng "various" đứng TRỰC TIẾP trước danh từ số nhiều (không cần "of"): "<b>various</b> approaches". "a variety of" cần thêm "of" nên không khớp vị trí trống ngay trước "approaches".`},
+  {no:36, cat:'so_sanh', text:`Her opinion on the matter is — as her colleague's, despite their different backgrounds.`,
+   opts:["same","the same","so same","as same"], ans:1,
+   explain:`<span class="step-tag">Cấu trúc "the same...as"</span>Công thức: S V+the same(+N)+as+O — cần đủ "<b>the same</b>...as", không phải "same/so same/as same" một mình.`},
+  {no:37, cat:'so_sanh', text:`The factory can produce — 500 units per day during peak season.`,
+   opts:["more than","more","as many","so many"], ans:0,
+   explain:`<span class="step-tag">So sánh hơn nhấn mạnh danh từ</span>Công thức: S+V+more/less+than+O, với danh từ thường bắt đầu bằng con số ("500 units") — coi "more than+N" là 1 cụm danh từ → <b>more than</b>.`},
+  {no:38, cat:'so_sanh', text:`Of all the candidates, she was — qualified for the position.`,
+   opts:["the more","the most","more","most"], ans:1,
+   explain:`<span class="step-tag">So sánh hơn nhất</span>"qualified" là tính từ dài (≥2 âm tiết) → dùng "the most + adj", không dùng "-est": so sánh với TẤT CẢ ứng viên khác → <b>the most</b> qualified.`},
+  {no:39, cat:'so_sanh', text:`This is Sarah's — achievement to date.`,
+   opts:["the most impressive","most impressive","the impressive","impressivest"], ans:1,
+   explain:`<span class="step-tag">So sánh nhất với sở hữu cách</span>"Sarah's" (sở hữu cách) đã tương đương chức năng của "the", nên KHÔNG cần thêm "the" trước "most" nữa → <b>most impressive</b>.`},
+  {no:40, cat:'so_sanh', text:`— you practice grammar exercises, the more confident you will become before the exam.`,
+   opts:["The more","More","The most","As more"], ans:0,
+   explain:`<span class="step-tag">So sánh kép (13C)</span>Công thức: The+SS hơn(không "than")+S+V, the+SS hơn(không "than")+S+V — 2 vế đều bắt đầu bằng "the" → <b>The more</b> you practice....`},
+  {no:41, cat:'md_trang_ngu_rutgon', text:`— exhausted from the long shift, the nurse still smiled warmly at every patient.`,
+   opts:["Even though","Because","So","Therefore"], ans:0,
+   explain:`<span class="step-tag">Mẹo nhận diện rút gọn</span>Dạng "___ (adv) V-p2/adj + prep + O, S+V+O" ("exhausted from the long shift, the nurse...") → điền liên từ tương phản: <b>even though</b>, although, though, while, whereas.`},
+  {no:42, cat:'md_trang_ngu_rutgon', text:`— about the delay, the manager apologized and offered a full refund.`,
+   opts:["When asked","When ask","He was asked","Asking"], ans:0,
+   explain:`<span class="step-tag">Mẹo câu 1-15</span>Khớp cụm "when V-ed prep O" (rút gọn từ "When he was asked about the delay...") → <b>When asked</b>.`},
+  {no:43, cat:'md_trang_ngu_rutgon', text:`Peter is respected by many people — no official position for election.`,
+   opts:["while holding","while he holding","despite hold","although held"], ans:0,
+   explain:`<span class="step-tag">Rút gọn mệnh đề trạng ngữ</span>Rút gọn từ "while he is holding" → bỏ "he is", giữ nguyên TN_adv "while" và phần còn lại: <b>while holding</b> no official position...`},
+  {no:44, cat:'md_danh_tu', text:`— we learned from the seminar was extremely useful for our new project.`,
+   opts:["What","That","The thing","Which"], ans:0,
+   explain:`<span class="step-tag">Mệnh đề danh từ làm S</span>TN dẫn mệnh đề danh từ làm chủ ngữ chỉ gồm: what, how, why, that, whether or not. "Which" không dùng theo cách này → <b>What</b> we learned... was useful.`},
+  {no:45, cat:'md_danh_tu', text:`The technician couldn't explain — the machine suddenly stopped working.`,
+   opts:["why","which","who","what reason"], ans:0,
+   explain:`<span class="step-tag">Mệnh đề danh từ làm O</span>TN dẫn mệnh đề danh từ làm tân ngữ dùng được hầu hết các từ, TRỪ who/which → <b>why</b> the machine suddenly stopped working.`},
+  {no:46, cat:'md_danh_tu', text:`— the plan succeeds depends largely on the team's preparation and timing.`,
+   opts:["Whether or not","If","That","Whichever"], ans:0,
+   explain:`<span class="step-tag">Mệnh đề danh từ làm S</span>"Whether or not" là một trong các TN hợp lệ dẫn mệnh đề danh từ làm CHỦ NGỮ đầu câu; "If" thường không dùng để dẫn mệnh đề danh từ làm chủ ngữ theo cách trang trọng này → <b>Whether or not</b> the plan succeeds depends on...`},
+  {no:47, cat:'md_danh_tu', text:`Researchers judged the experiment's success largely — what the data ultimately revealed.`,
+   opts:["based on","based","base on","based of"], ans:0,
+   explain:`<span class="step-tag">CT với "what"</span>Công thức S+V+O+prep what+V(+O): "judged...success" (O) + "based on" (prep) + "what the data revealed" → <b>based on</b>.`},
+  {no:48, cat:'md_danh_tu', text:`— the Amazon Rainforest today was once covered by a shallow inland sea, according to geologists.`,
+   opts:["What is now called","Which is called","It is called","That calls"], ans:0,
+   explain:`<span class="step-tag">Mẹo câu 1-15</span>Mẫu cố định "What is + now/called" hay gặp trong đề → chọn <b>What is now called</b>.`},
+  {no:49, cat:'md_danh_tu', text:`The manual explains — to operate the new machinery safely and efficiently.`,
+   opts:["how","how is","what","which"], ans:0,
+   explain:`<span class="step-tag">how/when + to V O</span>"how" có thể dẫn mệnh đề danh từ rút gọn dạng "to V O": <b>how</b> to operate the new machinery...`},
+  {no:50, cat:'md_trang_ngu_day_du', text:`— the new policy received strong opposition initially, most employees eventually adapted to the changes.`,
+   opts:["Although","Because","So","As a result"], ans:0,
+   explain:`<span class="step-tag">Mẹo tương phản (98%)</span>Dạng "___ S V O, S V O" (2 mệnh đề đầy đủ) → điền liên từ tương phản: <b>Although</b>.`},
+  {no:51, cat:'md_trang_ngu_day_du', text:`The company continued to expand into new markets — the economic downturn affected many competitors severely.`,
+   opts:["while","so","therefore","moreover"], ans:0,
+   explain:`<span class="step-tag">Mẹo tương phản (98%)</span>Dạng "S V O ___ S V O" (2 mệnh đề đầy đủ) → điền liên từ tương phản: <b>while</b>.`},
+  {no:52, cat:'md_trang_ngu_day_du', text:`— critics questioned the film's slow pacing, audiences praised its emotional depth and stunning visuals.`,
+   opts:["Whereas","Therefore","Meanwhile","Since"], ans:0,
+   explain:`<span class="step-tag">Mẹo tương phản (98%)</span>Dạng "___ S V O, S V O", đồng thời 2 vế mang ý nghĩa đối lập rõ rệt (chỉ trích vs khen ngợi) → <b>Whereas</b>.`},
+];
+
+let sActiveItems = structureItems;
+let sState = {order:[], index:0, score:0, locked:false};
+
+function buildChips(rowId, categories, flatCount, onAll, onCat){
+  const row = document.getElementById(rowId);
+  row.innerHTML = '';
+  const allChip = document.createElement('div');
+  allChip.className = 'chip active';
+  allChip.dataset.cat = 'all';
+  allChip.innerHTML = `Tất cả <span class="n">${flatCount}</span>`;
+  allChip.addEventListener('click', ()=>{ onAll(); highlightChip(row,'all'); });
+  row.appendChild(allChip);
+  Object.entries(categories).forEach(([key,cat])=>{
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.dataset.cat = key;
+    chip.innerHTML = `${cat.label} <span class="n">${cat.count}</span>`;
+    chip.addEventListener('click', ()=>{ onCat(key); highlightChip(row,key); });
+    row.appendChild(chip);
+  });
+}
+function highlightChip(row,key){
+  row.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active', c.dataset.cat===key));
+}
+
+function initStructureChips(){
+  Object.keys(structureCategories).forEach(k=>{
+    structureCategories[k].count = structureItems.filter(it=>it.cat===k).length;
+  });
+  buildChips('s-chip-row', structureCategories, structureItems.length,
+    ()=>{ sActiveItems = structureItems; initStructure(); },
+    (key)=>{ sActiveItems = structureItems.filter(it=>it.cat===key); initStructure(); }
+  );
+}
+
+function initStructure(){
+  sState = {order: shuffle(sActiveItems.map((_,i)=>i)), index:0, score:0, locked:false};
+  document.getElementById('s-total').textContent = sActiveItems.length;
+  document.getElementById('s-score').textContent = 0;
+  renderStructure();
+}
+
+function renderStructure(){
+  const item = sActiveItems[sState.order[sState.index]];
+  sState.locked = false;
+  document.getElementById('s-no').textContent = 'No. ' + String(item.no).padStart(2,'0');
+  document.getElementById('s-index').textContent = sState.index+1;
+  document.getElementById('s-progress').style.width = (sState.index/sActiveItems.length*100)+'%';
+  document.getElementById('s-cat-label').textContent = structureCategories[item.cat].label;
+  document.getElementById('s-text').innerHTML = item.text.replace('—','<span class="blank">＿＿＿＿</span>');
+  document.getElementById('s-explain').classList.remove('show');
+  document.getElementById('s-explain').innerHTML = '';
+  document.getElementById('s-next-btn').style.display = 'none';
+
+  const letters = ['A','B','C','D'];
+  const optWrap = document.getElementById('s-options');
+  optWrap.innerHTML = '';
+  item.opts.forEach((o, idx)=>{
+    const el = document.createElement('div');
+    el.className = 'opt';
+    el.innerHTML = `<span class="lbl">(${letters[idx]})</span><span>${o}</span>`;
+    el.addEventListener('click', ()=>answerStructure(el, idx, item));
+    optWrap.appendChild(el);
+  });
+}
+
+function answerStructure(el, idx, item){
+  if(sState.locked) return;
+  sState.locked = true;
+  const allOpts = document.querySelectorAll('#s-options .opt');
+  allOpts.forEach(o=>o.classList.add('disabled'));
+  if(idx === item.ans){
+    el.classList.add('correct');
+    sState.score++;
+  } else {
+    el.classList.add('incorrect');
+    allOpts[item.ans].classList.add('correct');
+  }
+  document.getElementById('s-score').textContent = sState.score;
+  document.getElementById('s-explain').classList.add('show');
+  document.getElementById('s-explain').innerHTML = item.explain;
+  document.getElementById('s-next-btn').style.display = 'inline-block';
+}
+
+document.getElementById('s-next-btn').addEventListener('click', ()=>{
+  sState.index++;
+  if(sState.index >= sActiveItems.length){
+    sState.index = 0;
+    sState.order = shuffle(sActiveItems.map((_,i)=>i));
+  }
+  renderStructure();
+});
+
+/* ============ WRITTEN EXPRESSION DATA ============ */
+const writtenCategories = {
+  chu_ngu_kep:{label:"Thừa chủ ngữ / câu chạy"},
+  dang_tu:{label:"Sai dạng từ / trật tự từ"},
+  dai_tu:{label:"Đại từ không khớp"},
+  thieu_dong_tu_chinh:{label:"Thiếu động từ chính"},
+  hoa_hop_sv:{label:"Hòa hợp S–V"},
+  lien_tu_tuong_quan:{label:"Liên từ tương quan"},
+  tu_thua_thieu:{label:"Từ/giới từ thừa-thiếu"},
+  song_song:{label:"Song song"},
+  so_it_nhieu_danh_tu:{label:"Danh từ số ít/nhiều"},
+  so_sanh:{label:"So sánh hơn/nhất"},
+  thi_dong_tu:{label:"Thì động từ"},
+  gioi_tu_co_dinh:{label:"Giới từ cố định"},
+  vi_tu_gioi_tu:{label:"Giới từ vs Liên từ"},
+  nhan_manh:{label:"Từ/cấu trúc nhấn mạnh (very/so/such)"},
+  mao_tu:{label:"Mạo từ a/an/the"},
+  luong_tu_loi:{label:"Lượng từ dùng sai (each/every/all)"},
+  song_song_nangcao:{label:"Song song nâng cao (to-V, V-ing, or/and)"},
+  vi_tri_tinh_tu:{label:"Vị trí đứng của tính từ"},
+  vi_tri_trang_tu:{label:"Vị trí đứng của trạng từ"},
+  vi_tri_danh_tu:{label:"Vị trí đứng của danh từ"},
+  vi_tri_dong_tu:{label:"Vị trí đứng của động từ"},
+  loi_so_sanh:{label:"Lỗi so sánh (that/those, more/most thừa)"},
+  md_danh_tu_loi:{label:"Lỗi mệnh đề danh từ (which/what)"},
+};
+
+const writtenItems = [
+  {no:16, cat:'chu_ngu_kep', ans:'B',
+   segs:[["The triode, ",null],["invented","A"],[" by the American engineer Lee De Forest, ",null],["it was","B"],[" used in amplifiers ",null],["until","C"],[" it was superseded by ",null],["the","D"],[" transistor during the 1950's."]],
+   explain:`Câu đã có chủ ngữ chính "The triode". Cụm "it was" ở B lặp lại chủ ngữ (đại từ "it") ngay sau cụm chêm — tạo <b>câu chạy / thừa chủ ngữ</b>. Bỏ "it was", câu vẫn đúng: "...invented by ..., was used in amplifiers..."`},
+  {no:17, cat:'dang_tu', ans:'A',
+   segs:[["It is ",null],["estimation","A"],[" that there ",null],["are","B"],[" about 1 billion bicycles ",null],["in use","C"],[" throughout the world, ",null],["compared","D"],[" to about 1.5 billion automobiles."]],
+   explain:`"estimation" là danh từ, nhưng cấu trúc chuẩn phải là <b>"It is estimated that..."</b> (bị động, "estimated" là tính từ/phân từ). Đây là lỗi <b>sai dạng từ</b>.`},
+  {no:18, cat:'dai_tu', ans:'D',
+   segs:[["Asset","A"],[" stripping is ",null],["the sale","B"],[" or exploitation of the assets of a business, often ",null],["those","C"],[" that ",null],["has","D"],[" been intentionally acquired for that purpose."]],
+   explain:`"those" thay cho "assets" (số nhiều), nên động từ theo sau phải là <b>"have"</b> chứ không phải "has" — lỗi <b>hòa hợp với đại từ chỉ định số nhiều</b>.`},
+  {no:19, cat:'thieu_dong_tu_chinh', ans:'B',
+   segs:[["The Esch-Cummins Act of 1920, also ",null],["known","A"],[" as the Railroad Transportation Act, ",null],["returning","B"],[" the railroads to ",null],["private","C"],[" operation","D"],["."]],
+   explain:`Câu đang <b>thiếu động từ chính</b>: "returning" (V-ing) không thể tự làm vị ngữ. Cần đổi thành động từ chia thì "<b>returned</b> the railroads to private operation".`},
+  {no:20, cat:'hoa_hop_sv', ans:'B',
+   segs:[["The planet Uranus has ",null],["at least","A"],[" ten rings, which ",null],["is","B"],[" composed","C"],[" mainly of ",null],["jagged","D"],[" rocks and icy boulders."]],
+   explain:`"which" thay cho "rings" (số nhiều) → động từ phải là <b>"are"</b>, không phải "is". Lỗi <b>hòa hợp chủ ngữ – động từ</b>.`},
+  {no:21, cat:'lien_tu_tuong_quan', ans:'B',
+   segs:[["The fathom, a unit of measurement ",null],["once","A"],[" used both at sea ",null],["including","B"],[" on land, ",null],["approximates","C"],[" the distance between an adult man's ",null],["outstretched","D"],[" hands."]],
+   explain:`Cấu trúc tương quan <b>"both...and"</b> bị phá vỡ: phải là "both at sea <b>and</b> on land", không phải "including". Lỗi <b>liên từ tương quan sai cặp</b>.`},
+  {no:22, cat:'hoa_hop_sv', ans:'B',
+   segs:[["Heavy industry, ",null],["such as","A"],[" that involving the manufacture of steel, petroleum, and rubber, ",null],["require","B"],[" high capitalization ",null],["and","C"],[" the ",null],["production","D"],[" of large quantities of materials."]],
+   explain:`Chủ ngữ chính là "Heavy industry" (số ít, không đếm được) → động từ phải là <b>"requires"</b>, không phải "require". Cụm "such as that involving..." chỉ là bổ nghĩa chêm giữa, không làm chủ ngữ thành số nhiều.`},
+  {no:23, cat:'dang_tu', ans:'D',
+   segs:[["Although","A"],[" the paintings of Morris Louis do not feature ",null],["recognizable","B"],[" people, landscapes, or objects, ",null],["their","C"],[" form and energy have a ",null],["power","D"],[" effect on the viewer."]],
+   explain:`"power" là danh từ nhưng đang đứng ở vị trí cần <b>tính từ</b> bổ nghĩa cho "effect" → phải sửa thành <b>"powerful"</b>. Lỗi <b>sai dạng từ</b>.`},
+  {no:24, cat:'so_it_nhieu_danh_tu', ans:'A',
+   segs:[["Much","A"],[" different micro-organisms ",null],["can be","B"],[" classified as germs since ",null],["they","C"],[" ",null],["cause","D"],[" disease."]],
+   explain:`"micro-organisms" là danh từ đếm được, số nhiều → cần lượng từ <b>"Many"</b>, không phải "Much" (chỉ dùng cho danh từ không đếm được).`},
+  {no:25, cat:'lien_tu_tuong_quan', ans:'C',
+   segs:[["An audit may be ",null],["conducted by","A"],[" either a member of ",null],["the organization","B"],[" as an internal audit ",null],["and","C"],[" an outsider as ",null],["an independent","D"],[" audit."]],
+   explain:`Cấu trúc tương quan <b>"either...or"</b> bị phá vỡ: phải là "either ... <b>or</b> an outsider", không phải "and". Lỗi <b>liên từ tương quan sai cặp</b>.`},
+  {no:26, cat:'tu_thua_thieu', ans:'D',
+   segs:[["The city","A"],[" of Long Beach ",null],["is home","B"],[" to the largest commercial ",null],["port","C"],[" in California ",null],["there","D"],["."]],
+   explain:`"there" ở cuối câu bị <b>thừa</b> — "in California" đã nêu rõ địa điểm, thêm "there" gây lặp nghĩa không cần thiết.`},
+  {no:27, cat:'dang_tu', ans:'A',
+   segs:[["The most ",null],["significantly","A"],[" provider ",null],["of","B"],[" retirement ",null],["income","C"],[" in the United States is the Social Security Administration, which oversees a non-voluntary ",null],["pension plan","D"],["."]],
+   explain:`"significantly" là trạng từ nhưng đang đứng trước danh từ "provider" để bổ nghĩa cho danh từ đó → cần <b>tính từ "significant"</b>. Lỗi <b>sai dạng từ</b> (đây chính là câu ở ảnh 4 trong lần trước).`},
+  {no:28, cat:'dang_tu', ans:'A',
+   segs:[["William Buckley, a ",null],["writer conservative","A"],[" and editor, ",null],["founded","B"],[" The National Review in 1955 as ",null],["a forum","C"],[" for his right-wing political ",null],["views","D"],["."]],
+   explain:`Trật tự từ sai: tính từ phải đứng TRƯỚC danh từ → "a <b>conservative writer</b> and editor", không phải "writer conservative". Lỗi <b>trật tự từ</b>.`},
+  {no:29, cat:'song_song', ans:'D',
+   segs:[["In the mid-19th century, ",null],["the industrial revolution","A"],[" marked ",null],["the beginning","B"],[" of mass production, ",null],["technological innovation","C"],[", and ",null],["transportation of the public","D"],["."]],
+   explain:`Danh sách liệt kê "mass production, technological innovation, and ___" cần giữ cùng khuôn mẫu "[tính từ] + danh từ" → phải là <b>"public transportation"</b>, không phải "transportation of the public". Lỗi <b>song song cấu trúc</b>.`},
+  {no:30, cat:'dai_tu', ans:'C',
+   segs:[["An","A"],[" amphibian must spend part of ",null],["its","B"],[" life cycle in the water, ",null],["there","C"],[" its eggs are laid and ",null],["fertilized","D"],["."]],
+   explain:`Cần trạng từ quan hệ <b>"where"</b> (chỉ nơi chốn, nối với "the water") thay vì "there" (không có chức năng nối mệnh đề).`},
+  {no:31, cat:'so_sanh', ans:'A',
+   segs:[["Regarded as ",null],["the great","A"],[" American playwright, Tennessee Williams ",null],["wrote about","B"],[" the consequences of ",null],["intense","C"],[" passion and pain as well as the gradual deterioration ",null],["of Southern","D"],[" gentility."]],
+   explain:`"Regarded as" ngụ ý so sánh với TẤT CẢ nhà viết kịch khác → cần so sánh nhất <b>"the greatest"</b>, không phải "the great".`},
+  {no:32, cat:'hoa_hop_sv', ans:'A',
+   segs:[["Hibernation is a state which ",null],["occur","A"],[" in some mammals, ",null],["such as","B"],[" bats and gophers, during ",null],["which","C"],[" the animals' heart rate and ",null],["respiration","D"],[" slow down."]],
+   explain:`"which" thay cho "a state" (số ít) → động từ phải là <b>"occurs"</b>, không phải "occur". Lỗi <b>hòa hợp S–V</b>.`},
+  {no:33, cat:'tu_thua_thieu', ans:'C',
+   segs:[["Collectivist societies place emphasis ",null],["on","A"],[" the ",null],["optimal","B"],[" performance of the group ",null],["instead","C"],[" the outstanding achievements of the ",null],["individual","D"],["."]],
+   explain:`"instead" cần đi kèm giới từ <b>"of"</b> khi theo sau là danh từ: "instead <b>of</b> the outstanding achievements". Lỗi <b>thiếu giới từ cố định</b>.`},
+  {no:34, cat:'so_it_nhieu_danh_tu', ans:'A',
+   segs:[["One of the distinguishing ",null],["characteristic","A"],[" of the Hudson River School of Painting ",null],["was","B"],[" its focus on ",null],["vast","C"],[" landscapes, ",null],["especially","D"],[" mountains and rivers."]],
+   explain:`Cấu trúc "one of the + danh từ" luôn cần danh từ <b>số nhiều</b> → phải là <b>"characteristics"</b>, không phải "characteristic".`},
+  {no:35, cat:'song_song', ans:'C',
+   segs:[["The","A"],[" phrase “The Roaring Twenties” ",null],["was employed","B"],[" to characterize the ",null],["society, artistic, and cultural","C"],[" ",null],["dynamism","D"],[" of the 1920's."]],
+   explain:`Danh sách 3 tính từ bổ nghĩa cho "dynamism" phải cùng dạng: "artistic" và "cultural" là tính từ, nhưng "society" là danh từ → phải sửa thành <b>"social"</b>. Lỗi <b>song song cấu trúc</b>.`},
+  {no:36, cat:'chu_ngu_kep', ans:'B',
+   segs:[["The most ",null],["significant","A"],[" accomplishment of Eli Whitney, famous for his invention of the cotton gin, ",null],["it was","B"],[" actually his ",null],["achievement","C"],[" of producing equipment with ",null],["interchangeable","D"],[" parts."]],
+   explain:`Chủ ngữ chính đã là "The most significant accomplishment...". "it was" ở B lặp lại chủ ngữ bằng đại từ → <b>thừa chủ ngữ / câu chạy</b>, giống hệt kiểu lỗi ở câu 16.`},
+  {no:37, cat:'dai_tu', ans:'B',
+   segs:[["Charles Monroe Schultz was ",null],["an","A"],[" American artist ",null],["which","B"],[" Peanuts cartoons brought ",null],["him","C"],[" ",null],["worldwide","D"],[" fame."]],
+   explain:`"Peanuts cartoons" là CỦA Schultz (quan hệ sở hữu) → cần đại từ quan hệ sở hữu <b>"whose"</b>, không phải "which".`},
+  {no:38, cat:'dai_tu', ans:'B',
+   segs:[["The market ",null],["price","A"],[" of palladium, like ",null],["those","B"],[" of gold or silver, is determined by a combination of factors ",null],["including","C"],[" current supply, future production, and projected ",null],["demand","D"],["."]],
+   explain:`"those" phải thay cho "the market price" (số ít) → cần <b>"that"</b>, không phải "those" (số nhiều).`},
+  {no:39, cat:'gioi_tu_co_dinh', ans:'A',
+   segs:[["With requiring","A"],[" that dogs be vaccinated ",null],["while","B"],[" they are young, public health officials ",null],["have been able","C"],[" to bring rabies and ",null],["other","D"],[" canine diseases under control."]],
+   explain:`Diễn tả PHƯƠNG TIỆN/CÁCH THỨC dẫn đến kết quả cần giới từ <b>"By"</b> (By + V-ing), không phải "With". Lỗi <b>giới từ cố định sai</b>.`},
+  {no:40, cat:'thi_dong_tu', ans:'B',
+   segs:[["For half a century","A"],[" the logging of timber ",null],["plays","B"],[" an important role ",null],["in","C"],[" Michigan's economy, though ",null],["its","D"],[" influence is now negligible."]],
+   explain:`Trạng ngữ "For half a century" (kéo dài từ quá khứ đến hiện tại) đòi hỏi <b>thì hiện tại hoàn thành</b>: "<b>has played</b>", không phải hiện tại đơn "plays". Lỗi <b>thì động từ</b>.`},
+  {no:41, cat:'thi_dong_tu', ans:'B',
+   segs:[["Last year","A"],[", the company ",null],["have launched","B"],[" ",null],["three innovative products","C"],[" ",null],["to compete","D"],[" in the growing smartphone market."]],
+   explain:`Trạng từ "Last year" là dấu hiệu <b>quá khứ đơn (QKĐ)</b> → động từ phải chia <b>"launched"</b>, không phải hiện tại hoàn thành "have launched".`},
+  {no:42, cat:'thi_dong_tu', ans:'B',
+   segs:[["By 1944","A"],[", Allied forces ",null],["has liberated","B"],[" ",null],["much of","C"],[" Western Europe ",null],["from years","D"],[" of occupation."]],
+   explain:`"By + mốc thời gian quá khứ" (by 1944) là dấu hiệu <b>quá khứ hoàn thành (QKHT)</b>: S + had + V-p2. Phải sửa thành <b>"had liberated"</b>, không phải "has liberated" (vừa sai thì, vừa sai hòa hợp vì "Allied forces" số nhiều không đi với "has").`},
+  {no:43, cat:'vi_tu_gioi_tu', ans:'A',
+   segs:[["Because of","A"],[" the volunteers ",null],["worked","B"],[" long hours throughout the summer, the shelter ",null],["was able","C"],[" to ",null],["rescue","D"],[" over two hundred animals."]],
+   explain:`Sau "Because of" (giới từ) chỉ được theo sau bởi danh từ/cụm danh từ, không phải một mệnh đề đầy đủ như "the volunteers worked...". Cần sửa thành liên từ <b>"Because"</b>.`},
+  {no:44, cat:'vi_tu_gioi_tu', ans:'A',
+   segs:[["Despite","A"],[" the economy ",null],["struggled","B"],[" during the recession, many small businesses ",null],["managed to","C"],[" survive and even ",null],["expand","D"],["."]],
+   explain:`"Despite" là giới từ, chỉ theo sau bởi danh từ/cụm danh từ, không phải mệnh đề "the economy struggled" (có đủ S+V). Cần sửa thành liên từ <b>"Although"</b>.`},
+  {no:45, cat:'vi_tu_gioi_tu', ans:'A',
+   segs:[["During","A"],[" the negotiations ",null],["lasted","B"],[" for several months, both sides ",null],["refused","C"],[" to ",null],["compromise","D"],[" on key terms."]],
+   explain:`"During" là giới từ, cần theo sau bởi danh từ, không phải mệnh đề "the negotiations lasted...". Cần sửa thành liên từ <b>"While"</b>.`},
+  {no:46, cat:'vi_tu_gioi_tu', ans:'A',
+   segs:[["Because","A"],[" ",null],["heavy traffic","B"],[", many commuters ",null],["arrived late","C"],[" to ",null],["the conference","D"],[" downtown."]],
+   explain:`"Because" là liên từ, cần theo sau bởi mệnh đề đầy đủ (S+V+O), nhưng ở đây theo sau chỉ là cụm danh từ "heavy traffic" (không có S+V) → cần sửa thành giới từ <b>"Because of"</b>.`},
+  {no:47, cat:'nhan_manh', ans:'A',
+   segs:[["It is ",null],["hot very","A"],[" outside today, so ",null],["many people","B"],[" ",null],["decided to","C"],[" ",null],["avoid the heat","D"],["."]],
+   explain:`Từ nhấn mạnh phải đứng TRƯỚC từ nó bổ nghĩa: "hot very" sai trật tự, phải sửa thành "<b>very hot</b>".`},
+  {no:48, cat:'nhan_manh', ans:'A',
+   segs:[["The final exam was ",null],["so much difficult","A"],[" that ",null],["nearly half","B"],[" the students ",null],["failed to","C"],[" ",null],["complete it","D"],[" in time."]],
+   explain:`"so" đứng trước tính từ/trạng từ KHÔNG cần thêm "much": "so much difficult" sai, phải sửa thành "<b>so difficult</b>" (bỏ "much"). "much" chỉ dùng trước danh từ không đếm được, không dùng trước tính từ.`},
+  {no:49, cat:'nhan_manh', ans:'A',
+   segs:[["The lecture was ",null],["such boring","A"],[" that ",null],["half the audience","B"],[" ",null],["left before","C"],[" ",null],["it ended","D"],["."]],
+   explain:`"such" dùng để nhấn mạnh DANH TỪ (such + N + that), không dùng trực tiếp trước tính từ. Với tính từ, phải dùng "so": sửa thành "<b>so boring</b>".`},
+  {no:50, cat:'mao_tu', ans:'A',
+   segs:[["The committee reached ",null],["an unique","A"],[" solution that ",null],["satisfied","B"],[" ",null],["both parties","C"],[" ",null],["involved in","D"],[" the dispute."]],
+   explain:`"unique" phát âm bắt đầu bằng âm /ju/ (âm phụ âm), nên dùng mạo từ "<b>a</b>" chứ không phải "an": sửa thành "a unique solution".`},
+  {no:51, cat:'mao_tu', ans:'B',
+   segs:[["After graduation","A"],[", she ",null],["became teacher","B"],[" at ",null],["a local","C"],[" elementary school ",null],["near her hometown","D"],["."]],
+   explain:`Danh từ đếm được số ít ("teacher") không có mạo từ đứng trước là sai: "S+become+N(số ít không mạo từ)" → sửa thành "<b>became a teacher</b>".`},
+  {no:52, cat:'mao_tu', ans:'C',
+   segs:[["The results","A"],[" of the experiment ",null],["are summarized","B"],[" ",null],["in the 2","C"],[" ",null],["chapter of","D"],[" this research report."]],
+   explain:`Cấu trúc "the + số(≥2) + danh từ số ít" là sai, cần sửa số đếm thành SỐ THỨ TỰ: "in the <b>second</b> chapter".`},
+  {no:53, cat:'mao_tu', ans:'A',
+   segs:[["Mount Everest is ",null],["the world's the highest","A"],[" ",null],["peak","B"],[", ",null],["attracting","C"],[" climbers from ",null],["every continent","D"],["."]],
+   explain:`Danh từ sở hữu cách "N's" đã tương đương chức năng của mạo từ "the", nên không cần thêm "the" nữa: sửa thành "<b>the world's highest</b> peak" (bỏ "the" thừa).`},
+  {no:54, cat:'mao_tu', ans:'A',
+   segs:[["At the first","A"],[", the researchers ",null],["were skeptical","B"],[" about the results, but ",null],["further testing","C"],[" ",null],["confirmed their","D"],[" validity."]],
+   explain:`"At first" (nghĩa "ban đầu") là một trạng từ cố định, KHÔNG dùng mạo từ "the" trước "first" ở đây (khác với "first" mang nghĩa số thứ tự): sửa thành "<b>At first</b>".`},
+  {no:55, cat:'luong_tu_loi', ans:'B',
+   segs:[["During the meeting, ",null],["the two managers","A"],[" ",null],["greeted each another","B"],[" before ",null],["discussing","C"],[" ",null],["quarterly targets","D"],["."]],
+   explain:`"each another" không tồn tại — đại từ tương hỗ đúng là "<b>each other</b>". Đây là lỗi nhầm lẫn phổ biến giữa "each/another" (lượng từ) và "each other" (đại từ tương hỗ).`},
+  {no:56, cat:'luong_tu_loi', ans:'A',
+   segs:[["Every of the","A"],[" students ",null],["submitted their","B"],[" ",null],["assignment","C"],[" before ",null],["the deadline","D"],[" last Friday."]],
+   explain:`"Every" KHÔNG đi được với "of the + danh từ số nhiều" — chỉ có "each of the" mới đúng: sửa thành "<b>Each of the</b> students".`},
+  {no:57, cat:'luong_tu_loi', ans:'A',
+   segs:[["Almost every visitors","A"],[" to the museum ",null],["praised","B"],[" ",null],["the new modern","C"],[" ",null],["art exhibit","D"],["."]],
+   explain:`"every" chỉ đi với danh từ SỐ ÍT, không phải "visitors" (số nhiều). Khi muốn dùng với danh từ số nhiều, phải đổi "every" thành "<b>all</b>": "Almost all visitors".`},
+  {no:58, cat:'song_song_nangcao', ans:'B',
+   segs:[["The manager decided ",null],["to reorganize the team","A"],[", ",null],["delegating new tasks","B"],[", and ",null],["to set clear","C"],[" ",null],["deadlines for the project","D"],["."]],
+   explain:`Ba hành động liệt kê phải song song cùng dạng "to + V": "to reorganize", "to set" đã đúng dạng, nhưng "delegating" (V-ing) phá vỡ tính song song → sửa thành "<b>to delegate</b> new tasks".`},
+  {no:59, cat:'song_song_nangcao', ans:'D',
+   segs:[["Employees are ",null],["responsible for","A"],[" ",null],["completing their","B"],[" reports, ",null],["submitting timesheets","C"],[", and ",null],["to attend monthly","D"],[" meetings."]],
+   explain:`Giới từ "for" dùng chung cho cả 3 cụm liệt kê, nên cả 3 phải ở dạng V-ing: "completing", "submitting" đã đúng, nhưng "to attend" phá vỡ tính song song → sửa thành "<b>attending</b> monthly meetings".`},
+  {no:60, cat:'song_song_nangcao', ans:'C',
+   segs:[["The document or","A"],[" ",null],["the photographs","B"],[" ",null],["was misplaced","C"],[" ",null],["during the office","D"],[" renovation last month."]],
+   explain:`Kiến thức bổ trợ: khi 2 danh từ nối bằng "or" (N or N), động từ chia theo danh từ ĐỨNG SAU "or" — ở đây là "the photographs" (số nhiều) → sửa thành "<b>were misplaced</b>".`},
+  {no:61, cat:'song_song_nangcao', ans:'B',
+   segs:[["Managers, supervisors,","A"],[" ",null],["and staff both","B"],[" ",null],["attended the","C"],[" mandatory ",null],["safety training","D"],[" session last week."]],
+   explain:`Khi liệt kê từ 3 danh từ trở lên ("Managers, supervisors, and staff"), "both" sai vì "both" chỉ dùng cho 2 đối tượng → sửa thành "<b>all</b>": "...and staff all attended".`},
+  {no:62, cat:'vi_tri_tinh_tu', ans:'A',
+   segs:[["The two designs ",null],["looked alike","A"],[" ",null],["the original","B"],[" ",null],["blueprint submitted","C"],[" ",null],["last year","D"],["."]],
+   explain:`"alike" là tính từ, chỉ đứng sau be/Vdb và KHÔNG thể theo sau bởi một danh từ trực tiếp. Cần giới từ "<b>like</b>": sửa thành "looked like the original blueprint".`},
+  {no:63, cat:'vi_tri_tinh_tu', ans:'C',
+   segs:[["After the surgery, ",null],["doctors","A"],[" ",null],["confirmed that","B"],[" the patient ",null],["would alive","C"],[" for ",null],["many more years","D"],["."]],
+   explain:`Sau động từ khuyết thiếu (MV) "would" cần động từ nguyên thể "<b>live</b>", không phải tính từ "alive": sửa "would alive" thành "would live".`},
+  {no:64, cat:'vi_tri_tinh_tu', ans:'C',
+   segs:[["The manager","A"],[" ",null],["gave the new","B"],[" ",null],["project to she","C"],[" ",null],["before leaving","D"],[" for a two-week vacation."]],
+   explain:`"she" là đại từ chủ ngữ, không dùng làm tân ngữ sau giới từ "to". Cần đại từ tân ngữ "<b>her</b>": sửa "to she" thành "to her".`},
+  {no:65, cat:'vi_tri_trang_tu', ans:'B',
+   segs:[["The committee","A"],[" ",null],["reviewed carefully","B"],[" ",null],["the proposal","C"],[" ",null],["before making","D"],[" a final decision."]],
+   explain:`Trạng từ không được chen giữa động từ thường và tân ngữ của nó ("S+Vthường+adv+N" sai): sửa thành "<b>carefully reviewed</b> the proposal" (adv đứng trước V thường).`},
+  {no:66, cat:'vi_tri_trang_tu', ans:'A',
+   segs:[["Jack extremely is","A"],[" ",null],["the most talented","B"],[" ",null],["musician in","C"],[" ",null],["the entire orchestra","D"],["."]],
+   explain:`Trạng từ không đứng trước "be" khi theo sau là mạo từ+N ("S+adv+be+a/an/the+N" sai): sửa thành "Jack is <b>extremely</b> the most talented..." (adv đứng SAU "be").`},
+  {no:67, cat:'vi_tri_trang_tu', ans:'B',
+   segs:[["She performed","A"],[" ",null],["very good on","B"],[" ",null],["the final","C"],[" examination, ",null],["earning the highest","D"],[" score in her class."]],
+   explain:`"good" là TÍNH TỪ, không thể bổ nghĩa cho động từ "performed". Cần TRẠNG TỪ "<b>well</b>": sửa "very good" thành "very well".`},
+  {no:68, cat:'vi_tri_danh_tu', ans:'B',
+   segs:[["Employees must","A"],[" ",null],["submit hers","B"],[" ",null],["timesheets to","C"],[" ",null],["the payroll department","D"],[" by Friday afternoon."]],
+   explain:`"hers" là đại từ sở hữu tuyệt đối, phải đứng MỘT MÌNH, không theo sau bởi danh từ. Trước danh từ cần tính từ sở hữu "<b>her</b>": sửa "hers timesheets" thành "her timesheets".`},
+  {no:69, cat:'vi_tri_danh_tu', ans:'C',
+   segs:[["The committee","A"],[" ",null],["decided that","B"],[" the proposal ",null],["was not longer","C"],[" feasible ",null],["given the budget","D"],[" constraints."]],
+   explain:`"longer" đứng sau "not" là sai — các từ như longer/matter/means/voice/speech/woman/adult đứng sau "not" đều sai, phải đổi "not" thành "<b>no</b>": sửa thành "was no longer feasible".`},
+  {no:70, cat:'vi_tri_danh_tu', ans:'A',
+   segs:[["None students","A"],[" ",null],["in the class","B"],[" ",null],["had completed","C"],[" the assignment ",null],["before the deadline","D"],["."]],
+   explain:`"None" là danh từ, không thể đứng trực tiếp trước một danh từ khác. Cần "<b>No</b> students" hoặc "<b>None of the</b> students".`},
+  {no:71, cat:'vi_tri_danh_tu', ans:'C',
+   segs:[["The company","A"],[" ",null],["launched several","B"],[" ",null],["products lines","C"],[" ",null],["to expand its","D"],[" market share this year."]],
+   explain:`Danh từ ghép chỉ có 2 dạng đúng: N N hoặc N Ns. "products lines" (Ns+Ns) không hợp lệ → sửa thành "<b>product lines</b>" (N Ns).`},
+  {no:72, cat:'vi_tri_dong_tu', ans:'B',
+   segs:[["The team","A"],[" ",null],["succeeded by focus","B"],[" ",null],["on quality","C"],[" rather than quantity ",null],["throughout the project","D"],["."]],
+   explain:`Động từ đứng sau giới từ "by" cần ở dạng V-ing: sửa "by focus" thành "by <b>focusing</b>".`},
+  {no:73, cat:'vi_tri_dong_tu', ans:'B',
+   segs:[["In addition to","A"],[" ",null],["prepare","B"],[" the annual budget, the finance director ",null],["must present","C"],[" it ",null],["to the board","D"],[" next week."]],
+   explain:`"in addition to" là một trong các ngoại lệ (adjust to/dedicate to/in addition to) đòi hỏi V-ing theo sau dù có "to": sửa "prepare" thành "<b>preparing</b>".`},
+  {no:74, cat:'vi_tri_dong_tu', ans:'B',
+   segs:[["The new ",null],["regulations","A"],[" ",null],["will be enforce","B"],[" ",null],["starting next","C"],[" month ",null],["to ensure","D"],[" workplace safety."]],
+   explain:`Sau "be" cần V-ed/V-p2 (thể bị động), không phải động từ nguyên thể: sửa "be enforce" thành "be <b>enforced</b>".`},
+  {no:75, cat:'vi_tri_dong_tu', ans:'C',
+   segs:[["By the end","A"],[" ",null],["of the meeting,","B"],[" the board ",null],["had already approve","C"],[" ",null],["the merger agreement","D"],["."]],
+   explain:`Sau have/has/had cần V-ed/V-p2, không phải động từ nguyên thể: sửa "had already approve" thành "had already <b>approved</b>".`},
+  {no:76, cat:'gioi_tu_co_dinh', ans:'B',
+   segs:[["Employees ",null],["who want to","A"],[" transfer departments must first ",null],["adapt at","B"],[" the new team's ",null],["workflow and","C"],[" ",null],["expectations","D"],["."]],
+   explain:`"adapt" đi với giới từ "to/for", không phải "at": sửa "adapt at" thành "<b>adapt to</b>".`},
+  {no:77, cat:'gioi_tu_co_dinh', ans:'B',
+   segs:[["This versatile","A"],[" machine ",null],["can serve into","B"],[" ",null],["multiple functions","C"],[", ",null],["from cutting to","D"],[" polishing metal surfaces."]],
+   explain:`"serve" đi với giới từ "as/for/to/in", không phải "into": sửa "serve into" thành "<b>serve as</b>" (hoặc serve for/to/in tùy ngữ cảnh).`},
+  {no:78, cat:'gioi_tu_co_dinh', ans:'C',
+   segs:[["The proposed","A"],[" ",null],["policy change","B"],[" ",null],["would involve of","C"],[" ",null],["significant adjustments","D"],[" to the current benefits package."]],
+   explain:`"involve" không đi với giới từ "of": sửa "involve of" thành "<b>involve</b>" (bỏ giới từ) — mẹo: "involve of" luôn sai.`},
+  {no:79, cat:'loi_so_sanh', ans:'C',
+   segs:[["The quality","A"],[" ",null],["is much higher","B"],[" ",null],["than it of","C"],[" ",null],["last year's model","D"],["."]],
+   explain:`So sánh với danh từ ("the quality") phải dùng "that/those", không dùng "it/them": sửa "than it of" thành "than <b>that</b> of last year's model".`},
+  {no:80, cat:'loi_so_sanh', ans:'B',
+   segs:[["This laptop","A"],[" ",null],["is more lighter","B"],[" ",null],["than the previous","C"],[" ",null],["version released","D"],[" last spring."]],
+   explain:`"lighter" đã là dạng so sánh hơn (tận cùng "-er"), không cần thêm "more" nữa (double comparative): sửa "more lighter" thành "<b>lighter</b>".`},
+  {no:81, cat:'loi_so_sanh', ans:'C',
+   segs:[["Among all","A"],[" ",null],["the options","B"],[", this route ",null],["was considered the most worst","C"],[" ",null],["choice for the trip","D"],["."]],
+   explain:`"worst" đã là dạng so sánh nhất bất quy tắc (bad → worse → worst), không cần thêm "most" nữa (double superlative): sửa "the most worst" thành "<b>the worst</b>".`},
+  {no:82, cat:'md_danh_tu_loi', ans:'B',
+   segs:[["The committee","A"],[" ",null],["based its decision","B"],[" on which the survey ",null],["results indicated","C"],[" ",null],["about customer preferences","D"],["."]],
+   explain:`Sau giới từ "on" mà theo sau trực tiếp là "which + V+O" (không có tiền ngữ rõ ràng) là sai — cần sửa thành "<b>what</b>": "based its decision on what the survey results indicated".`},
+  {no:83, cat:'md_danh_tu_loi', ans:'C',
+   segs:[["The government","A"],[" ",null],["announced new","B"],[" ",null],["tariffs, after what","C"],[" ",null],["several industry leaders raised","D"],[" serious concerns."]],
+   explain:`"what" ở đây có tiền ngữ rõ ràng ("new tariffs") nên phải dùng đại từ quan hệ "<b>which</b>" (đại từ quan hệ cần tiền ngữ), không dùng "what" (không tiền ngữ): sửa "after what" thành "after which".`},
+];
+
+let wActiveItems = writtenItems;
+let wState = {order:[], index:0, score:0, picked:null, locked:false};
+
+function initWrittenChips(){
+  Object.keys(writtenCategories).forEach(k=>{
+    writtenCategories[k].count = writtenItems.filter(it=>it.cat===k).length;
+  });
+  buildChips('w-chip-row', writtenCategories, writtenItems.length,
+    ()=>{ wActiveItems = writtenItems; initWritten(); },
+    (key)=>{ wActiveItems = writtenItems.filter(it=>it.cat===key); initWritten(); }
+  );
+}
+
+function initWritten(){
+  wState = {order: shuffle(wActiveItems.map((_,i)=>i)), index:0, score:0, picked:null, locked:false};
+  document.getElementById('w-total').textContent = wActiveItems.length;
+  document.getElementById('w-score').textContent = 0;
+  renderWritten();
+}
+
+function renderWritten(){
+  const item = wActiveItems[wState.order[wState.index]];
+  wState.picked = null; wState.locked = false;
+  document.getElementById('w-no').textContent = 'No. ' + item.no;
+  document.getElementById('w-index').textContent = wState.index+1;
+  document.getElementById('w-progress').style.width = (wState.index/wActiveItems.length*100)+'%';
+  document.getElementById('w-cat-label').textContent = writtenCategories[item.cat].label;
+  document.getElementById('w-explain').classList.remove('show');
+  document.getElementById('w-explain').innerHTML = '';
+  document.getElementById('w-next-btn').style.display = 'none';
+  document.getElementById('w-check-btn').style.display = 'inline-block';
+
+  const wrap = document.getElementById('w-text');
+  wrap.innerHTML = '';
+  item.segs.forEach(seg=>{
+    const [txt, letter] = seg;
+    if(letter){
+      const span = document.createElement('span');
+      span.className = 'u';
+      span.dataset.letter = letter;
+      span.innerHTML = txt + '<sub>' + letter + '</sub>';
+      span.addEventListener('click', ()=>wPick(span, letter));
+      wrap.appendChild(span);
+    } else {
+      wrap.appendChild(document.createTextNode(txt));
+    }
+  });
+}
+
+function wPick(span, letter){
+  if(wState.locked) return;
+  document.querySelectorAll('#w-text .u.picked').forEach(s=>s.classList.remove('picked'));
+  wState.picked = letter;
+  span.classList.add('picked');
+}
+
+document.getElementById('w-check-btn').addEventListener('click', ()=>{
+  if(!wState.picked){
+    document.getElementById('w-explain').classList.add('show');
+    document.getElementById('w-explain').innerHTML = 'Hãy bấm vào phần gạch chân (A, B, C hoặc D) mà bạn cho là chứa lỗi trước khi kiểm tra.';
+    return;
+  }
+  const item = wActiveItems[wState.order[wState.index]];
+  wState.locked = true;
+  document.getElementById('w-check-btn').style.display = 'none';
+  document.getElementById('w-next-btn').style.display = 'inline-block';
+
+  document.querySelectorAll('#w-text .u').forEach(span=>{
+    span.classList.add('locked');
+    const letter = span.dataset.letter;
+    if(letter === item.ans) span.classList.add('correct-mark');
+    else if(letter === wState.picked) span.classList.add('wrong-mark');
+    span.classList.remove('picked');
+  });
+
+  const correct = wState.picked === item.ans;
+  if(correct) wState.score++;
+  document.getElementById('w-score').textContent = wState.score;
+
+  const explainEl = document.getElementById('w-explain');
+  explainEl.classList.add('show');
+  explainEl.innerHTML = (correct ? '<b>Chính xác!</b> ' : `<b>Chưa đúng.</b> Lỗi nằm ở phần <b>${item.ans}</b>. `) + item.explain;
+});
+
+document.getElementById('w-next-btn').addEventListener('click', ()=>{
+  wState.index++;
+  if(wState.index >= wActiveItems.length){
+    wState.index = 0;
+    wState.order = shuffle(wActiveItems.map((_,i)=>i));
+  }
+  renderWritten();
+});
+
+/* ---------- TABS ---------- */
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+initStructureChips();
+initStructure();
+initWrittenChips();
+initWritten();
+</script>
+</body>
+</html>
